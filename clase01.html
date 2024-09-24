@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Clase 240924</title>
+</head>
+
+<body>
+    <script>
+        // {
+        // var primeraVariable = "Visible fuera del bloque (variable1)";
+        // let segundaVariable = "No visible fuera del bloque (variable2)";
+        // }
+        // console.log(primeraVariable); // Visible
+        // console.log(segundaVariable); // No visible
+
+        var primeraVariable = "Declarada fuera del bloque (variable1)";
+        function miFuncion() {
+            var primeraVariable = "Declarada dentro del bloque (variable1)";
+            console.log(primeraVariable); // Declarada dentro del bloque
+            return 0;
+        }
+        console.log(primeraVariable); // Declarada fuera del bloque
+        miFuncion();
+        console.log(primeraVariable); // Declarada fuera del bloque. Aunque se llame a la función, 
+                                        //no se modifica la variable global
+        console.log(miFuncion()); // 0
+
+    </script>
+</body>
+
+<!-- 
+const Nombre = "Denis"; -> no se puede modificiar
+let edad = 24; -> se puede modificar
+
+use strict obliga a declarar y tipar todas las variables.
+fuerza al navegador a no permitir:
+     ·usar una variable sin declarar
+     ·definir mas de 1 propiedad pa un objeto
+     ·duplicar un parametro en uan funcion
+     ·usar numeros en octal
+
+operadores de tipo: indica de que tipo es una variable
+    ·typeof devuelve una cadena que indica el tipo de operando
+    ·instanceof devuelve true si el objeto es una instancia de un objeto. En realidad
+         comprueba si un objeto contiene la propiedad prototype de un constructor.
+         Si no lo tiene, es una instancia.
+
+  -->
+
+</html>
