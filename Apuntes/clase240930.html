@@ -34,11 +34,40 @@
         console.log("1" - 1); //0
 
         //Coerción -> conversión automática o implícita
+        //Puede llevar a errores sutiles. Usar === y !==
         const valor1 = "5";
         const valor2 =  9;
         let suma = valor1 + valor2;
         console.log(suma); //59
-        
+
+        console.log("ES " + true);
+
+        //Uso de `. Poner dentro de una cadena varialbles y expresiones
+        //que serán evaluadas entre ${}
+
+        //diferencia entre undefined, cadena vacía y null.
+        //typeof undefined -> undefined
+        //typeof null -> object
+
+        //Boolean() es false cuando:
+        //0, "", null, undefined, NaN
+
+        //método toFixed
+        let num = 9.99;
+        console.log(num.toFixed(0)); //10
+        console.log(num.toFixed(1)); //10.0
+        console.log(num.toFixed(2)); //9.99
+        console.log(num.toFixed(3)); //9.990
+
+        //método toPrecision
+        //console.log(num.toPrecision(0)); //Error;
+        console.log(num.toPrecision(1)); //1e+1
+        console.log(num.toPrecision(2)); //10
+        console.log(num.toPrecision(3)); //9.99
+
+        //uso de prompt
+        let nombre = prompt("Introduce tu nombre");
     </script>
+        <p></p>
 </body>
 </html>
