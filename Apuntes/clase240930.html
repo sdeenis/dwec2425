@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = 10;
+        let y = x++;
+        console.log(x,y); //11 10
+
+        let z = 10;
+        let h = ++z;
+        console.log(z,h); //11 11
+
+        // Posibles valores de typeof:
+        // undefined, objetc, boolean, numer, bigint, string, symbol, function
+
+        let year = 2050;
+        let newYear = year = 2051; //se ejecuta de derecha a izquierda. 
+        //Ambas vars valen 2050.
+
+        //Conversiones entre tipos.
+        // String() y toString() y number()
+        // parseInt() y parseFloat()
+    </script>
+</body>
+</html>
