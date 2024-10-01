@@ -31,8 +31,8 @@ en el formulario: nombre/teléfono/correo. -->
         let correo2 = "posuere.vulputate@sed.com";
         let correo3 = "libero@convallis.edu";
 
-        console.log("Primer contacto: " + nombre1 + " / " + telefono1 + " / " + correo1);
-        console.log("Último contacto: " + nombre3 + " / " + telefono3 + " / " + correo3);
+        // console.log("Primer contacto: " + nombre1 + " / " + telefono1 + " / " + correo1);
+        // console.log("Último contacto: " + nombre3 + " / " + telefono3 + " / " + correo3);
 
 //         2.- Crea la lista de contactos en un array, de tal manera que cada uno de sus elementos
 // será un objeto que describa a un solo usuario (tres propiedades).
@@ -50,18 +50,41 @@ en el formulario: nombre/teléfono/correo. -->
         let nuevoContacto = {nombre: "Maisie Haley", telefono: "0913 531 3030", correo: "risus.Quisque@urna.ca"};
         contactos.push(nuevoContacto);
 
-        console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
-        console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+        // console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        // console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
 
 
 //         3.- Modifica el programa para agregar, al final de la lista, el contacto que el usuario
 // introducirá durante la ejecución del programa. (prompt). Al final, muestra el primer y
 // último contacto de la lista.
-        let nuevoContacto2 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
-        contactos.push(nuevoContacto2);
+        // let nuevoContacto2 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
+        // contactos.push(nuevoContacto2);
 
-        console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
-        console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+        // console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        // console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+
+       
+//         4.- Modifica el programa para que el usuario pueda elegir lo que quiere hacer con la
+// lista. Las opciones serán:
+// • Mostrar el primer contacto (primero)
+// • Mostrar el último contacto (último)
+// • Añadir un nuevo contacto (nuevo)
+// Al agregar un nuevo contacto, verifica si el usuario ha ingresado todos los datos
+// necesarios. Si falta al menos uno de los tres valores (nombre, teléfono o correo
+// electrónico), no se agrega el contacto.
+        let opcion = prompt("¿Qué quieres hacer con la lista?: \n 1. Mostrar el primer contacto \n 2. Mostrar el último contacto \n 3. Añadir un nuevo contacto");
+        if (opcion == 1) {
+            console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        } else if (opcion == 2) {
+            console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+        } else if (opcion == 3) {
+            let nuevoContacto3 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
+            if (nuevoContacto3.nombre != "" && nuevoContacto3.telefono != "" && nuevoContacto3.correo != "") {
+                contactos.push(nuevoContacto3);
+            } else {
+                console.log("Faltan datos para añadir el contacto");
+            }
+        }
     </script>
 </body>
 </html>
