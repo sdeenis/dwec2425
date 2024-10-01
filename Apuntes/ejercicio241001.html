@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de async y defer</title>
+    <script>
+        console.log("Inicio del HTML");
+    </script>
+</head>
+<body>
+    <!-- Ejercicio 1 
+    Prueba los atributos async y defer de la etiqueta <script> en el 
+    código realizado en clase en el que se incrustaba Javascript en 
+    distintas partes del HTML o se invocaba a fichero externo .js con 
+    src=. -->
+    <h1>Prueba de Scripts</h1>
+
+    <script async src="script-async.js"></script>
+    <script defer src="script-defer.js"></script>
+    <script src="script-normal.js"></script>
+
+    <!-- Script normal se cargará y ejecutará de inmediato, bloqueando la carga del HTML.
+    Script async se ejecutará tan pronto como esté disponible, posiblemente antes de que el HTML esté completamente cargado.
+    Script defer se ejecutará al final, después de que toda la página HTML se haya cargado. -->
+
+    <p>Contenido de la página HTML.</p>
+
+
+
+    <!-- Ejercicio 3
+Explica los resultados obtenidos con los console.log de este código y 
+relaciónalos con el alcance de variables en JavaScript ( scope) -->
+<script>
+    function pruebaAlcance() {
+ 	 for (i = 0; i < 10; i++) {
+    	console.log(i);
+  }
+  	for (var j = 5; j < 15; j++){
+  	console.log(j);
+  }
+ 	 for (let k = 10; k < 20; k++){
+  	console.log(k);
+  }
+ console.log({i,j,k});
+}
+
+pruebaAlcance();
+console.log({i,j,k}); //i esta definida globalmente
+                      //j esta definida en la funcion
+                      //k esta definida en el bloque for
+</script>
+
+</body>
+</html>
