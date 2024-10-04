@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log(suma(6,3)); //da igual si se llama antes de declarar
+        function suma(a,b){
+            return a + b;
+        }
+        console.log(suma(2,3));
+
+        //Maneras de declarar funciones:
+        //-function funcion1(parametros){cuerpo} 
+        //-var funcion2 = function(parametros){cuerpo}
+        //-var funcion3 = new function(parametros, cuerpo)
+
+        //funciones sin parametros:
+        //function saludo(){
+        //     return "Hola"
+        // }
+        //si llamamos a esta funcion con:
+        //var resultado_saludo = saludo();
+        //console.log(resultado_saludo); //Hola + undefined
+
+        function saludo(){
+            return "Hola"
+        }
+        var resultado_saludo = saludo();
+        console.log(resultado_saludo); //Hola
+
+        console.log(saludo()); //Hola
+        console.log(saludo); //function saludo(){return "Hola"}
+        //Escribe la función en sí, no su resultado.
+
+        //funcion anonima:
+        // var producto2=function(a,b){return a*b};
+        // console.log(producto2(2,3)); //6
+
+
+        //var jjfuncion = new Function ("a", "b", "return a*b");
+        //console.log(jjfuncion(2,3)); //6
+
+
+        //usar funciones como parámetros:
+        //const cuadrado = function(value) {
+        //    return value * value;
+        //};
+        //function aplica_fn(dato, funcionAaplicar){
+        //    return funcionAaplicar(dato);
+        //}
+        //console.log(aplica_fn(5, cuadrado)); //25
+
+
+        //argumentos por exceso y defecto:
+        //defecto: si se pasan menos argumentos, el resultado es NaN
+        //exceso: si se pasan más argumentos, se almacenan en objeto array o lista arguments[]
+        console.log(suma(2)); //NaN
+        console.log(suma(2,3,4)); //5
+
+        function sumaInfinita(){
+            var resultado = 0;
+            for (var i = 0; i < arguments.length; i++){
+                resultado += arguments[i];
+            }
+            return resultado;
+        } //suma todos los argumentos que se le pasen
+
+        console.log(sumaInfinita(2,3,4,5,6,7,8,9,10)); //54
+        console.log(sumaInfinita()); //0
+        console.log(sumaInfinita(2, 3, "hola", 3, 4, "fin", 3, 4, 1)); //suma hasta el primer array
+
+
+        function tablaMultiplicar(tabla, fin = 10){
+            for (var i = 1; i <= fin; i++){
+                console.log(tabla + " * " + i + " = " + tabla * i);
+                }
+        }
+        tablaMultiplicar(2); //del 1 al 10
+        tablaMultiplicar(3, 5); //del 1 al 5
+        
+
+        //funciones flecha:
+        // diHola = (name) => "Hola " + name;
+   </script>
+</body>
+</html>
