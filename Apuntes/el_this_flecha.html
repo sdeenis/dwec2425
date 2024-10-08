@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const persona = {
+            nombre: "Juan",
+            apellido: "Garcia",
+            // consulta: function() {
+            //     return `${this.nombre} ${this.apellido}`;
+            // }
+            consulta: () => {
+                return `${this.nombre} ${this.apellido}`;
+            }
+        }
+
+        //al ser una funcion flecha, no tiene su propio this, sino 
+        // devuelve undefined 
+
+
+        console.log(persona.consulta());
+
+
+
+
+
+
+    </script>
+
+    <script>
+        // Mostrar todos los impares que estén entre dos números introducidos
+        // por el usuario
+
+        let num1 = Number(prompt("Introduce el primer número: "));
+        let num2 = Number(prompt("Introduce el segundo número: "));
+
+        const decirImpares = (numero1, numero2) => {
+            // Asegurarse de que el primer número sea menor que el segundo
+            if (numero1 > numero2) {
+                // Intercambiar los valores si el primero es mayor que el segundo
+                [numero1, numero2] = [numero2, numero1]; // Desestructuración para intercambiar
+            }
+
+            // Iterar desde numero1 hasta numero2
+            if (numero1 % 2 !== 0) {
+                for (let i = numero1 + 2; i < numero2; i += 2) {
+                    console.log(i);
+                }
+            } else {
+                for (let i = numero1 + 1; i < numero2; i += 2) {
+                    console.log(i);
+                }
+            }
+        };
+
+
+        decirImpares(num1, num2);
+    </script>
+</body>
+
+</html>

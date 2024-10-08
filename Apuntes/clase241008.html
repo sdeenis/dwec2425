@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function listadoFrutas(fruta1, fruta2, ...restoFrutas){
+            console.log("Fruta 1: " + fruta1);
+            console.log("Fruta 2: " + fruta2);
+            console.log("Resto de frutas: " + restoFrutas);
+            
+        }
+
+        listadoFrutas("Manzana", "Pera", "Melón", "Sandía", "Plátano");
+
+        //En restoFrutas se almacenan los parámetros sobrantes
+
+
+        //RESUMEN:
+        // se puedne invocar variables con mas argumentos (arguments[], length)
+        // pueden utilizar y modificar variables globales, no utilizarlas
+        // si no hay return, devuelve undefined,
+        // sin parentesis, se referencia al objeto de la function
+        //como son objetos, pueden ser asignaos a variables
+        //callbacks y proigramacion funciona (kmas adelante)
+        // ¡¡¡¡¡¡¡ por declaracion, por expresion, por constructor
+        //anonimas (no se invocan ni sirven para recursividad)
+        // flecha es simplificacion sintactica (con const pq no pueden ser reasignadas)
+        //    no tienen su propio this sino que lo heredan del contesto en el que se crearon
+        //    no son housted por eso no se pueden invocar antes, ni pueden ser metodos en objetos
+        //    no tienen arguments[]
+
+        //js es interpretado, pero sube todas las variables (housting) No compila pero echa un vistazo general a todo
+        //las funciones definidas por declaracion pueden ser utilizadas antes de su definicion,
+        //   las de expresion no.
+
+    </script>
+</body>
+</html>
