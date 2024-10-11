@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //estructuras de control
+
+        //if (condicion) {
+        //    instrucciones
+        //} else {
+        //    instrucciones
+        //}
+
+        //switch (expresion) {
+        //    case valor1:
+        //        instrucciones
+        //        break;
+        //    case valor2:
+        //        instrucciones
+        //        break;
+        //    default:
+        //        instrucciones
+        //        break;
+        //}
+
+        //for (inicializacion; condicion; incremento) { se puede prescindir de los tres: for(;;)
+        //    instrucciones
+        //}
+
+
+        //Ejemplo 1: (sin parámetros en el for)
+        // var i = 1;
+        // for (; ;) {
+        //     if (i > 5) {
+        //         break;
+        //     }
+        //     alert (i);
+        //     i++;
+        // }
+
+        //Ejemplo 2: (con más de un valor en la inicialización)
+        // for (var i = 1, j = 1; i <= 5, j <= 6; i++, j++) { //se ejecuta mientras se cumplan las dos condiciones
+        //      alert (i + " - " + j);
+        //  }
+
+        //for (variable in objeto) {
+        //    instrucciones
+        //}
+
+        //for (variable of objeto) {
+        //    instrucciones
+        //}
+
+        let nota = Number(prompt("Introduce tu nota: "));
+        let notaLetras = "";
+
+        switch (nota) {
+            case 9:
+            case 10:
+                notaLetras = "Sobresaliente";
+                break;
+            case 7:
+            case 8:
+                notaLetras = "Notable";
+                break;
+            case 6:
+                notaLetras = "Bien";
+                break;
+            case 5:
+                notaLetras = "Aprobado";
+                break;
+            case 4:
+            case 3:
+            case 2:
+            case 1:
+            case 0:
+                notaLetras = "Suspenso";
+                break;
+        }
+
+        alert(notaLetras);
+
+
+
+    </script>
+</body>
+
+</html>
