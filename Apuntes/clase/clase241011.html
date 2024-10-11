@@ -57,34 +57,48 @@
         //    instrucciones
         //}
 
-        let nota = Number(prompt("Introduce tu nota: "));
-        let notaLetras = "";
 
-        switch (nota) {
-            case 9:
-            case 10:
-                notaLetras = "Sobresaliente";
-                break;
-            case 7:
-            case 8:
-                notaLetras = "Notable";
-                break;
-            case 6:
-                notaLetras = "Bien";
-                break;
-            case 5:
-                notaLetras = "Aprobado";
-                break;
-            case 4:
-            case 3:
-            case 2:
-            case 1:
-            case 0:
-                notaLetras = "Suspenso";
-                break;
-        }
+            let nota = 0;
+            while (nota != -1) {
 
-        alert(notaLetras);
+                nota = Number(prompt("Introduce tu nota o escribe -1 para salir: "));
+
+                nota = Number(nota.toFixed(0));
+                //nota = Number(nota);
+                //alert(nota);
+
+                let notaLetras = "";
+
+                 switch (nota) {
+                    case 9:
+                    case 10:
+                        notaLetras = "Sobresaliente";
+                        break;
+                    case 7:
+                    case 8:
+                        notaLetras = "Notable";
+                        break;
+                    case 6:
+                        notaLetras = "Bien";
+                        break;
+                    case 5:
+                        notaLetras = "Aprobado";
+                        break;
+                    case 4:
+                    case 3:
+                    case 2:
+                    case 1:
+                    case 0:
+                        notaLetras = "Suspenso";
+                        break;
+                    case -1:
+                        notaLetras = "Fin";
+                        break;
+                }
+
+                alert(notaLetras);
+
+            }
 
 
 
