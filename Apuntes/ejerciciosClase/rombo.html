@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        p {
+            color: green;
+        }
+        h1{
+            color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
     <!-- Utilizando bucles, el símbolo &nbsp y la etiqueta <br>, dibuja la figura siguiente:
@@ -21,46 +32,65 @@
    
     
 
-    <script>
-        function rombo() {
-            let altura = 4;
-            let ancho = 7;
-            let salida = "";
+<p id="mi-parrafo"></p>
 
-            for (i = 1; i <= ancho; i = i + 2) {
-                 for (j = (ancho - i)/2; j > 0; j--) {
-                     document.write("&nbsp;&nbsp;");
-                 }
+<script>
+    function rombo() {
+        let ancho = Number(prompt("introduce el numero de asteriscos maximos"));
+        let altura = (ancho +1)/2;
+        let salida = "<h1>Mi rombo de anchura " + ancho + " y altura " + altura + "</h1><br>";
+        let relleno = "♦";
+        let huecos = "$";
 
-                for (j = 1; j <= i; j++) {
-                    document.write("*");
-                }
-
-                 for (j = (ancho - i)/2; j > 0; j--) {
-                      document.write("&nbsp;&nbsp;");
-                 }
-                  document.write("<br>");
+        // Parte superior del rombo
+        for (let i = 1; i <= ancho; i += 2) {
+            // Añadimos los espacios de la izquierda
+            for (let j = (ancho - i) / 2; j > 0; j--) {
+                salida += huecos;
             }
 
-            for (i = ancho - 2; i >= 1; i=i-2) {
-                for (j = (ancho - i)/2; j > 0; j--) {
-                     document.write("&nbsp;&nbsp;");
-                 }
-
-                for (j = 1; j <= i; j++) {
-                    document.write("*");
-                }
-
-                 for (j = (ancho - i)/2; j > 0; j--) {
-                      document.write("&nbsp;&nbsp;");
-                 }
-                  document.write("<br>");
+            // Añadimos los asteriscos
+            for (let j = 1; j <= i; j++) {
+                salida += relleno;
             }
 
-            
+            // Añadimos los espacios de la derecha (no son estrictamente necesarios)
+            for (let j = (ancho - i) / 2; j > 0; j--) {
+                salida += huecos;
+            }
+
+            // Añadimos un salto de línea
+            salida += "<br>";
         }
 
-        rombo();
-    </script>
+        // Parte inferior del rombo
+        for (let i = ancho - 2; i >= 1; i -= 2) {
+            // Añadimos los espacios de la izquierda
+            for (let j = (ancho - i) / 2; j > 0; j--) {
+                salida += huecos;
+            }
+
+            // Añadimos los asteriscos
+            for (let j = 1; j <= i; j++) {
+                salida += relleno;
+            }
+
+            // Añadimos los espacios de la derecha (no son estrictamente necesarios)
+            for (let j = (ancho - i) / 2; j > 0; j--) {
+                salida += huecos;
+            }
+
+            // Añadimos un salto de línea
+            salida += "<br>";
+        }
+
+        // Insertar el resultado en el párrafo con id 'mi-parrafo'
+        document.getElementById("mi-parrafo").innerHTML = salida;
+    }
+
+    // Llamar a la función para mostrar el rombo
+    rombo();
+</script>
+
 </body>
 </html>
