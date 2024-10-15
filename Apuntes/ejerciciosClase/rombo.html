@@ -6,13 +6,13 @@
     <title>Document</title>
     <style>
         body{
-            background-color: black;
+            background-color: #352f44;
         }
         p {
-            color: green;
+            color: #dbd8e3;
         }
         h1{
-            color: antiquewhite;
+            color: #dbd8e3;
         }
     </style>
 </head>
@@ -36,7 +36,7 @@
 
 <script>
     function rombo() {
-        let ancho = Number(prompt("introduce el numero de asteriscos maximos"));
+        let ancho = Number(prompt("introduce el numero de asteriscos maximos en una fila (ha de ser impar)")); //Ancho del rombo
         let altura = (ancho +1)/2; //Para que el rombo sea simétrico, la altura es la mitad del ancho+1
         let salida = "<h1>Mi rombo de anchura " + ancho + " y altura " + altura + "</h1><br>";
         let relleno = "♦"; //Carácter de relleno
@@ -46,7 +46,7 @@
         //El primer bucle recorre las filas de la parte superior del rombo. Hay tantas iteraciones como
         //números impares haya de 1 a "ancho". Por eso el bucle empieza en 1 y termina en "ancho" con un paso de 2.
         // i se va a corresponder además con el número de asteriscos de cada fila (1, 3, 5, 7, etc.)
-        for (let i = 1; i <= ancho; i += 2) { 
+        for (let i = 1; i <= ancho; i += 2) {
 
             //Añadimos los espacios de la izquierda. Para saber la cantidad de espacios que hay que añadir,
             //tenemos que restar a "ancho" el número de asteriscos de la fila y dividirlo por 2, porque la 
