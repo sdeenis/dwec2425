@@ -36,8 +36,8 @@
 
 <script>
     function rombo() {
-        let ancho = Number(prompt("introduce el numero de asteriscos maximos en una fila (ha de ser impar)")); //Ancho del rombo
-        let altura = (ancho +1)/2; //Para que el rombo sea simétrico, la altura es la mitad del ancho+1
+        let altura = Number(prompt("introduce la altura del rombo")); //Solicitamos la altura del rombo (la mitad de la altura realmente)
+        let ancho = altura*2-1; //La anchura del rombo es equivalente a la altura multiplicada por 2 más 1 
         let salida = "<h1>Mi rombo de anchura " + ancho + " y altura " + altura + "</h1><br>";
         let relleno = "♦"; //Carácter de relleno
         let huecos = "$"; //Carácter de huecos
@@ -95,7 +95,7 @@
             salida += "<br>";
         }
 
-        // Insertar el resultado en el párrafo con id 'mi-parrafo'
+        // Insertamos el resultado en el párrafo con id 'mi-parrafo'
         document.getElementById("mi-parrafo").innerHTML = salida;
     }
 
