@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         1. Programa que pida dos números y nos diga cuál es el mayor, el menor
+        // o si son iguales. Si no son números o son menores que cero, que lo
+        // vuelva a pedir
+
+        let num1 = Number(prompt("Introduce el primer número: "))
+        let num2 = Number(prompt("Introduce el segundo número: "))
+
+        while (num1 < 0 || num2 < 0 || isNaN(num1) || isNaN(num2)) {
+            window.alert("Sólo números mayores que 0!")
+            num1 = prompt("Introduce el primer número: ")
+            num2 = prompt("Introduce el segundo número: ")
+        }
+
+        comparar(num1, num2);
+
+        function comparar(a, b) {
+            if (a < b) {
+                window.alert(a + " es menor que " + b)
+            } else if (b < a) {
+                window.alert(a + " es mayor que " + b)
+            } else {
+                window.alert(a + " y " + b + " son iguales")
+            }
+        }
+    </script>
+</body>
+
+</html>
