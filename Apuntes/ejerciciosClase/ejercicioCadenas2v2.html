@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Realiza una aplicación web que solicite una cadena de texto. El programa debe decir
+        //cuantas veces ocurre cada uno de estos patrones sin distinguir mayusculas y minusculas:
+        //"00", "101", "ABC", "HO". Un caracter puede formar parte de mas de un patron encontrado.
+
+        //Por ejemplo:
+        //En la cadena "000" el patron "00" aparece 2 veces.
+
+        //Internamente el programa realizará la cuenta de patrones con una función definida
+        //como function numeroPatrones(texto) que devolvera un número entero con el númerop de 
+        //patrones encontrados.
+
+        //1110101000ABCHO 
+
+        let cadenaIntroducida = prompt("Introduce la cadena: ");
+        console.time("inicio");
+        let patrones = ["00", "101", "ABC", "HO"];
+        let cantidadPat = numeroPatrones(cadenaIntroducida, patrones);
+        console.log("Hay un total de " + cantidadPat + " subcadenas en " + cadenaIntroducida)
+        console.timeEnd("inicio");
+
+        function numeroPatrones(cadenaFuncion, patronesFuncion) {
+
+            let cantidadPatrones = 0;
+            let cadenaAuxiliar = cadenaFuncion.toUpperCase();
+            // window.alert(cadenaAuxiliar);
+
+            for (patron of patronesFuncion) {
+                //console.log(patron);
+                while (cadenaAuxiliar.indexOf(patron) != -1) {
+                    cantidadPatrones++;
+                    cadenaAuxiliar = cadenaAuxiliar.substr((cadenaAuxiliar.indexOf(patron) + 1));
+                }
+                cadenaAuxiliar = cadenaFuncion.toUpperCase();
+            }
+
+            return cantidadPatrones;
+        }
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+Diferencias for - for in - for of
+
+for in se utiliza para iterar sobre las propiedades de un elemento u objeto
+for of se utiliza para iterar sobre las elementos de un array
+for se utiliza para hacer una cantidad n de iteraciones. Se ha de incluir una condicion de salida y una acción que haga que 
