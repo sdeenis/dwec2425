@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Explicación del prototype</h1>
+    <p id="demo"></p>
+    <p id="aqui"></p>
+    <script>
+        // function Persona(nom, ap, color) {
+        //     this.nombre = nom;
+        //     this.apellido = ap;
+        //     this.ojos = color;
+        // }
+        // const miPadre = new Persona("Juan", "Pérez", "azul");
+        // const miMadre = new Persona("María", "Gómez", "verde");
+
+        // Persona.prototype.nacionalidad = "Española";
+        // document.getElementById("demo").innerHTML = "La nacionalidad de mi padre es " + miPadre.nacionalidad + " y la de mi madre es " + miMadre.nacionalidad;
+
+        // miMadre.nacionalidad = "Francesa";
+        // document.getElementById("demo").innerHTML += "<br>La nacionalidad de mi madre es " + miMadre.nacionalidad;
+
+
+
+        //ARRAYS
+        //Conjunto de elementos a los que se accede por un indice. Es estatica, pero puede contener distintos tipos de datos
+        //El array se referencia con un indice, los objetos se referencian con una clave
+
+
+        // const DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+        // DIAS[1] = Date();
+        // document.getElementById("aqui").innerHTML = DIAS;
+
+        // const miArray = [];
+        // console.log(typeof miArray);
+
+        // //.length nos da la longitud del array
+
+        // console.log(Array.isArray(miArray));
+
+        // console.log(DIAS); //hace un .toString() de los elementos del array
+
+        // //.join('separador')
+
+        // let cadena = DIAS.join(' - ');
+        // console.log(cadena);
+
+        let miArray2 = ["bonna", "sera", "forellino"];
+        console.log(miArray2);
+        console.log(typeof miArray2);
+        console.log(miArray2.length);
+        console.log(Array.isArray(miArray2));
+        let hola = miArray2.toString();
+        console.log(hola);
+        console.log(miArray2.toString());
+        console.log(miArray2.join(' - '));
+    </script>
+</body>
+</html>
