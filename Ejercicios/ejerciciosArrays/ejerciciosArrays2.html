@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        let frase = prompt("Introduce una frase");
+        let palabras = frase.split(" ");
+        let union = palabras.slice(); // Crear una copia del array de palabras
+
+        console.log("Primera palabra: " + palabras[0]);
+        console.log("Última palabra: " + palabras[palabras.length - 1]);
+        console.log("Número de palabras: " + palabras.length);
+        console.log("frase total: " + union);
+
+        // let respuesta = "si";
+        // while (respuesta.toLowerCase() === "si") {
+        //     frase = prompt("Introduce otra frase:");
+        //     palabras = frase.split(" "); // Actualizamos palabras con la nueva frase
+            
+        //     union = union.concat(palabras); // Concatenamos las palabras de la nueva frase
+           
+        //     console.log("Primera palabra: " + union[0]);
+        //     console.log("Última palabra: " + union[union.length - 1]);
+        //     console.log("Número de palabras: " + union.length);
+        //     console.log("frase total: " + union);
+            
+        //     respuesta = prompt("¿Quieres introducir otra frase? si/no");
+        // }
+    </script>
+</body>
+</html>
