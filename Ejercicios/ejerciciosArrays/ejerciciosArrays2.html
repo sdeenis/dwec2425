@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
 </head>
+
 <body>
     <p id="demo"></p>
     <script>
@@ -16,22 +18,23 @@
         console.log("Primera palabra: " + palabras[0]);
         console.log("Última palabra: " + palabras[palabras.length - 1]);
         console.log("Número de palabras: " + palabras.length);
-        console.log("frase total: " + union);
+        console.log("frase total: " + union.sort());
 
-        // let respuesta = "si";
-        // while (respuesta.toLowerCase() === "si") {
-        //     frase = prompt("Introduce otra frase:");
-        //     palabras = frase.split(" "); // Actualizamos palabras con la nueva frase
-            
-        //     union = union.concat(palabras); // Concatenamos las palabras de la nueva frase
-           
-        //     console.log("Primera palabra: " + union[0]);
-        //     console.log("Última palabra: " + union[union.length - 1]);
-        //     console.log("Número de palabras: " + union.length);
-        //     console.log("frase total: " + union);
-            
-        //     respuesta = prompt("¿Quieres introducir otra frase? si/no");
-        // }
+        let respuesta = "si";
+        while (respuesta.toLowerCase() === "si") {
+            frase = prompt("Introduce otra frase:");
+            palabras = frase.split(" "); // Actualizamos palabras con la nueva frase
+
+            union = union.concat(palabras); // Concatenamos las palabras de la nueva frase
+
+            console.log("Primera palabra: " + union[0]);
+            console.log("Última palabra: " + union[union.length - 1]);
+            console.log("Número de palabras: " + union.length);
+            console.log("frase total: " + union.sort());
+
+            respuesta = prompt("¿Quieres introducir otra frase? si/no");
+        }
     </script>
 </body>
+
 </html>
