@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Hacer una funcion que ordene las notas de un array pasado como parametro
+        //Si se le pasa [4,8,3,10,5] ha de devolver [3,4,5,8,10]. 
+
+        function ordenacion(arrayFuncion) {
+            arrayFuncion.sort((a, b) => a - b);
+            return arrayFuncion;
+        }
+
+        let arrayNotas = [4, 8, 3, 10, 5];
+
+        arrayNotas = ordenacion(arrayNotas);
+        console.log(arrayNotas);
+
+        let matriz = [
+            {nombre:"ana", edad:19},
+            {nombre:"javier", edad:20},
+            {nombre:"denis", edad:24},
+            {nombre:"lucio", edad:16}
+        ];
+
+        let matriz2 = [
+            {nombre:"ana", edad:19},
+            {nombre:"javier", edad:20},
+            {nombre:"denis", edad:24},
+            {nombre:"lucio", edad:16}
+        ];
+
+        
+        matriz.sort((a, b) => a.edad-b.edad);
+
+        console.log("Ordenado por edad:", matriz);
+
+       
+        matriz2.sort((a,b) => a.nombre.localeCompare(b.nombre));
+
+        console.log("Ordenado por nombre:", matriz2);  
+    </script>
+</body>
+
+</html>

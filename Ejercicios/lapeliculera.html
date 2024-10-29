@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Ejercicio
+
+Hacer un programa de generación de entradas de cine que incluya los datos del cliente y 
+permita aplicar descuentos y ofertas especiales, según las siguientes especificaciones:
+ 
+1. Pide el nombre del cliente. Si el nombre no es un tipo String o es nulo, debe producir 
+un mensaje de error e insistir.
+ 
+2. Pide la edad del cliente. Si la edad no es dato numérico o es nulo, debe producir un 
+mensaje de error e insistir.
+ 
+3. Pide escoger el nombre de la película que está en cartelera de un listado que aparece 
+en pantalla ('Spider Man', 'Superman', 'Dragon Ball Super', 'La era del hielo', '18videos').
+Si el cliente escoge una película que no está en la cartelera o es nulo, debe producir un 
+mensaje de error e insistir.
+ 
+4. Si la edad del cliente es menor o igual a 17 y la película que escogió es "18videos", 
+deberá mostrarle un mensaje de que no tiene permiso para ver esa película e insistir. 
+Caso contrario, se realizará lo siguiente:
+ 
+5. Si la edad del cliente es menor o igual a 17, tendrá un descuento del 50% y además 
+tendrá de regalo incluido con la entrada: Caramelos y Refresco.
+ 
+6. Si la edad del cliente es mayor o igual a 18 y menor o igual a 25, no tendrá descuento 
+alguno pero si tendrá de regalo incluido con la entrada: Palomitas, perrito y refresco.
+ 
+7. Si la edad del cliente es mayor o igual a 26 y menor o igual a 35, tendrá un descuento 
+del 10% y además tendrá de regalo incluido con la entrada: Perrito y refresco.
+ 
+8. Si la edad del cliente es mayor o igual a 36, tendrá un descuento del 20% y así mismo 
+tendrá de regalo incluido con la entrada: Agua.
+ 
+*La lista de películas, comidas y bebidas deben estar en Arrays
+* Imprimir por consola y en el HTML en líneas distintas: el nombre del cliente, nombre de 
+la película, lista de comidas y bebidas a la que accede, y el total a pagar dependiendo del 
+descuento.
+*El precio de la entrada es de 8,5 euros -->
+
+    <script>
+        let peliculas = [
+            "Spider man",
+            "Superman",
+            "Dragon Ball Super",
+            "La era del hielo",
+            "18videos"
+        ]
+        let comidas = [
+            "Caramelos",
+            "Palomitas",
+            "Perrito"
+        ]
+        let bebidas = [
+            "Refresco",
+            "Agua",
+        ]
+        let nombreCliente = "";
+        let edadCliente = "";
+        let descuento = 1;
+        let comida = "";
+        let bebida = "";
+
+        while (nombreCliente == null || nombreCliente == "" || !isNaN(Number(nombreCliente))) {
+            nombreCliente = prompt("Introduce el nombre del cliente(string): ");
+        }
+        while (edadCliente == null || edadCliente == "" || isNaN(Number(edadCliente))) {
+            edadCliente = prompt("Introduce la edad del cliente (números): ");
+        }
+
+        let mensaje = "Elige una pelicula: \n\n";
+        for (let pelicula of peliculas) {
+            mensaje += pelicula + "\n";
+        }
+
+        let eleccion = "";
+
+        while (!peliculas.includes(eleccion)) {
+            eleccion = prompt("¡Sólo puedes elegir películas de la cartelera!\n" + mensaje);
+        }
+
+        while (edadCliente <= 17 && eleccion == "18videos") {
+            eleccion = prompt("No puedes ver esa película!\n" + mensaje)
+        }
+
+        if (edadCliente <= 17) {
+            descuento = descuento - 0.50;
+            comida = comidas[0];
+            bebida = bebidas[0];
+        } else if (edadCliente <= 25) {
+            comida =comidas[1] + " y " + comidas[2];
+            bebida = bebidas[0];
+        } else if (edadCliente <=35) {
+            descuento = descuento -0.10;
+            comida = comidas[2];
+            bebida = bebidas[0];
+        } else {
+            descuento = descuento-0.20;
+            bebida = bebidas[1];
+        }
+
+        let precio = 8.5 * descuento;
+        console.log("Nombre: " + nombreCliente + "\nPelícula: " + eleccion + "\nComidas: " + comida + "\nBebida: " + bebida + "\nPrecio: " + precio);
+
+    </script>
+</body>
+
+</html>
