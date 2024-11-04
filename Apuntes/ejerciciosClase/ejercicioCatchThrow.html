@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+        try {
+            eleccion = prompt("Elija un mes del 1 al 12");
+            if (eleccion < 1 || eleccion > 12) {
+                throw new Error ("El numero ingresado no es valido");
+            } else {
+                console.log("El mes " + eleccion + " es " + meses[eleccion-1]);
+            }
+        } catch (e){
+            console.error(e.name + ": " + e.message);
+        }
+    </script>
+</body>
+</html>

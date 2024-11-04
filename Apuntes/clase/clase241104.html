@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Recorrido de un array</h3>
+    <p id="aqui"></p>
+    <script>
+        /* 
+        for, for in, for of, foreach 
+
+        for: para cuando se quiera tener un control sobre el indice y su flujo (que haya varios indices, que aumente de 2 en 2, etc.)
+        for in: se recomienda para cuando tenemos objetos. Nos permite recorrer las propiedades de un objeto.
+        for of: se recomienda para cuando tenemos arrays. Nos permite recorrer los elementos de un array.
+        .forEach(): es un método de array. Es util para aplicar una funcion a cada elemento de un array.
+
+        while: recorre un bloque de codigo mientras una condicion especifica sea verdadera.
+        do while: tambien recorre un bloque de codigo mientras una condicion especificada posteriormente sea verdadera. 
+        */
+
+        //Ejercicio foreach
+
+        let txt = "";
+        let txt2 = "";
+        let txt3 = "";
+        let txt4 = "";
+
+        var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+        dias.forEach(mostrar);
+
+        function mostrar(valor, index, array) {
+            txt = txt + valor + "<br>";
+        }
+        document.getElementById("aqui").innerHTML += "<br>";
+        document.getElementById("aqui").innerHTML = txt;
+
+        //var diasLong = dias.length;
+
+        for (var diasLong = dias.length, i = 0; i < diasLong; i++) { //usar dias.length no es eficiente. Mejor usar una variable que guarde el valor de dias.length
+            txt2 = txt2 + dias[i] + "<br>";
+        }
+        document.getElementById("aqui").innerHTML += "<br>";
+        document.getElementById("aqui").innerHTML += txt2;
+
+        for (let dia in dias) {
+            txt3 = txt3 + dias[dia] + "<br>";
+            //document.getElementById("aqui").innerHTML += dia;
+        }
+        document.getElementById("aqui").innerHTML += "<br>";
+        document.getElementById("aqui").innerHTML += txt3;
+
+        for (let dia of dias) {
+            txt4 = txt4 + dia + "<br>";
+        }
+        document.getElementById("aqui").innerHTML += "<br>";
+        document.getElementById("aqui").innerHTML += txt4;
+
+        /*
+        ERRORES
+
+        TIPOS:
+        error(no controlado): la aplicacion deja de funcionar
+        excepcion(controlada): situacion esperada de alguna forma que se trata convenientemente
+        advertencia: aviso de situaciones que pueden evolucionar a error
+
+        Como tratarlos:
+
+        con try-catch
+
+        try {
+            //codigo que puede lanzar un error
+        } catch (error) {
+            //codigo que se ejecuta si se lanza un error
+        }
+
+        finally: se ejecuta siempre, haya error o no
+
+        Cuando se produce un error, js crea un objeto Error que es el que se pasa a catch
+        Tiene de propiedades name y message
+        Se pueden crear errores personalizados:
+        try {
+            throw new Error("Este es un error personalizado");
+            } catch (error) {
+                console.error(e.name + ": " + e.message);
+            }
+        */
+        try {
+            throw new Error("OhdsfOh");
+        } catch (e) {
+            console.error(e.name + ": " + e.message);
+            console.warn("Esto es una advertencia");
+        }
+
+    </script>
+</body>
+
+</html>

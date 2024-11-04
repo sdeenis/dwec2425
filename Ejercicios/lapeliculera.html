@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p {
+            font-family: monospace;
+            font-size: 1.5em;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,6 +52,8 @@ tendrá de regalo incluido con la entrada: Agua.
 la película, lista de comidas y bebidas a la que accede, y el total a pagar dependiendo del 
 descuento.
 *El precio de la entrada es de 8,5 euros -->
+
+    <p id="resultado"></p> 
 
     <script>
         let peliculas = [
@@ -109,6 +118,8 @@ descuento.
 
         let precio = 8.5 * descuento;
         console.log("Nombre: " + nombreCliente + "\nPelícula: " + eleccion + "\nComidas: " + comida + "\nBebida: " + bebida + "\nPrecio: " + precio);
+
+        document.getElementById("resultado").innerHTML = "Nombre: " + nombreCliente + "<br>Película: " + eleccion + "<br>Comidas: " + comida + "<br>Bebida: " + bebida + "<br>Precio: " + precio;
 
     </script>
 </body>
