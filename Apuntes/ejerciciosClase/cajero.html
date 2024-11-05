@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        p {
+            font-family: monospace;
+            font-size: 50px;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+            margin: 20px;
+        }
+        button {
+            width: 100px;
+            height: 30px;
+            margin:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Simulación de cajero automático -->
+    <p>Por favor, introduce la cantidad a sacar</p>
+    <input type="text" id="num">
+    <button onclick="alberto()">Sacar</button>
+    <p id="p01"></p>
+
+    <script>
+
+        // let saldo = Number(100);
+        // let cantidad = Number(prompt());
+
+        // cantidad>saldo ? window.alert ("no tienes tanto dinero") : window.alert("te quedan " + (saldo - cantidad) + " euros");
+
+        // let mensaje = cantidad>saldo ? ("no tienes") : ("te queda dinero");
+        // window.alert(mensaje);
+
+        // let saldo = Number(100);
+
+        // function comprobar() {
+        //     const mensaje = document.getElementById("p01");
+        //     mensaje.innerHTML = "";
+        //     let cantidad = document.getElementById("num").value;
+
+        //     try {
+        //         if (cantidad.trim() == "") throw "vacio";
+        //         if (isNaN(cantidad)) throw "algo distinto de un número";
+        //         cantidad = Number(cantidad);
+        //         if (cantidad < 0) throw "menor que 0";
+        //         if (cantidad > saldo) throw "demasiado alto";
+        //         if (cantidad <= saldo) mensaje.innerHTML = "Te quedan " + (saldo - cantidad) + " euros.";
+        //     }
+        //     catch (err) {
+        //         mensaje.innerHTML = "El campo es " + err;
+        //     }
+        // }
+
+        let saldo = Number(1000);
+
+        function comprobar2(saldo, cantidad) {
+            if (saldo < cantidad) {    
+                throw "no hay saldo";
+            } else {
+                saldo -= cantidad;
+                return saldo;
+            }
+        }
+
+        const mensaje = document.getElementById("p01");
+
+        function alberto() {
+        try {
+            let cantidad = Number(document.getElementById("num").value);
+            saldo = comprobar2(saldo, cantidad);
+            mensaje.innerHTML = "Saldo restante: " + saldo;
+        } catch(err) {
+            mensaje.innerHTML = "error: " + err;
+        }
+    }
+
+
+    </script>
+</body>
+
+</html>

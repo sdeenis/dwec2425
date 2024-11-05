@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Por favor, introduzca número entre 5 y 10</p>
+    <input type="text" id="num">
+    <button onclick="miFuncion()">Comprobar</button>
+    <p id="p01"></p>
+    <script>
+        // function comprobar(){
+        //     num = document.getElementById("num").value;
+        //     try {
+        //         if (num < 5 || num > 10) {
+        //             throw new Error ("El numero ingresado no es valido");
+        //         } else {
+        //             console.log("El numero " + num + " es valido");
+        //         }
+        //     } catch (e){
+        //         window.alert(e.name + ": " + e.message);
+        //     }
+        // }
+
+        function miFuncion() {
+            const mensaje = document.getElementById("p01");
+            mensaje.innerHTML = "";
+            let x = document.getElementById("num").value;
+            try {
+                if (x.trim() == "") throw "vacio";
+                if (isNaN(x)) throw "algo distinto de un número";
+                x = Number(x);
+                if (x < 5) throw "demasiado bajo";
+                if (x > 10) throw "demasiado alto";
+            }
+            catch (err) {
+                mensaje.innerHTML = "El campo es " + err;
+            }
+        }
+    </script>
+</body>
+
+</html>
