@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="lienzo"></div>
+    <script>
+        let lienzo = document.getElementById("lienzo");
+        let numeroLineas = Number(prompt("Introduce el número de líneas"));
+        //Parte superior
+        for (let fila = 0; fila <= numeroLineas; fila++) {
+            let asteriscos = "";
+            let espacios = "";
+            for (let esp = 0; esp < numeroLineas - fila; esp++) {
+                espacios += "&nbsp;&nbsp;";
+            }
+            for (let ast = 0; ast < fila * 2 - 1; ast++) {
+                if (ast == 0 || ast == ((fila * 2 - 1) - 1)) {
+                    asteriscos += "*";
+                } else {
+                    asteriscos += "&nbsp;&nbsp;";   
+                }
+            }
+            lienzo.innerHTML = lienzo.innerHTML + espacios + asteriscos + "<br>";
+        }
+        //Parte inferior
+        for (let fila = numeroLineas - 1; fila >= 0; fila--) {
+            let asteriscos = "";
+            let espacios = "";
+            for (let esp = 0; esp < numeroLineas - fila; esp++) {
+                espacios += "&nbsp;&nbsp;";
+            }
+            for (let ast = 0; ast < fila * 2 - 1; ast++) {
+                if (ast == 0 || ast == ((fila * 2 - 1) - 1)) {
+                    asteriscos += "*";
+                } else {
+                    asteriscos += "&nbsp;&nbsp;";
+                }
+            }
+            lienzo.innerHTML = lienzo.innerHTML + espacios + asteriscos + "<br>";
+        }
+    </script>
+</body>
+
+</html>

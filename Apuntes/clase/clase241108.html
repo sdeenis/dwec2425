@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ventana"></p>
+    <script>
+        /*Objetos del navegador
+            BOM (Browser Object Model). Objetos de alto nivel y dependen del navegador:
+                - window
+                - screen
+                - location
+                - history
+                - navigator
+                - document
+                - alert
+                - prompt
+                - confirm
+                - setTimeout
+                - setInterval
+                - console
+
+            Hay un objeto raíz llamado window que tiene 2 roles:
+                - Contenedor de objetos
+                - Objeto global
+            Rrepresenta una ventana abierta en un navegador. Si se usa iframe, cada iframe tiene su propio objeto window. 
+            Todos los objetos, funciones, variables... son miembros de window.
+            No todos los métodos sirven para todos los navegadores.
+
+            Se puede declarar una ventana en una variable. Así, se podran ejecutar sus métodos.
+
+            <p id="ventana"></p>
+
+            <script>
+                window.name = "Ventana principal";
+
+                ...
+
+            
+
+                Propiedades mas importantes:
+                name
+                outerWidth y outerHeight; tamaño de la ventana incluyendo la barra de herramientas
+                innerWidth y innerHeight: tamaño de la ventana sin contar la barra de herramientas
+                pageXOffset y pageYOffset: scroll horizontal y vertical
+                screenX y screenY: posición de la ventana en la pantalla
+
+                Propiedades iframe:
+                frames: array con los iframes de la ventana
+                frameElement: iframe actual
+                length: número de iframes
+
+                top: ventana padre
+                closed: si la ventana está cerrada
+                opener: ventana que abrió la ventana actual
+                parent: ventana padre
+                self: ventana actual
+
+
+                métodos window:
+                open(url, name, specs, replace)
+                close
+                resizeBy(x, y) y resizeTo(x, y)
+                moveBy(x, y) y moveTo(x, y)
+            */
+
+
+            window.name = "Mi ventana";
+            var texto ="";
+            texto+="Nombre de la ventana: " + window.name + "<br>";
+            texto+="Ancho exterior: " + window.outerWidth + "<br>";
+            texto+="Alto exterior: " + window.outerHeight + "<br>";
+            texto+="Ancho interior: " + window.innerWidth + "<br>";
+            texto+="Alto interior: " + window.innerHeight + "<br>";
+            texto+="Scroll horizontal: " + window.pageXOffset + "<br>";
+            texto+="Scroll vertical: " + window.pageYOffset + "<br>";
+            texto+="Posición X en la pantalla: " + window.screenX + "<br>";
+            texto+="Posición Y en la pantalla: " + window.screenY + "<br>";
+
+            document.getElementById("ventana").innerHTML = texto;
+
+            var miVentana;
+
+            function abrirVentana() {
+                //miVentana = window.open("https://www.google.es", "Google", "width=400, height=400, top=100, left=100");
+                miVentana = window.open("", "", "width=400, height=400, top=100, left=100");
+                //miVentana = window.open("clase241108.html", "loquesea", "width=400, height=400, top=300, left=300");
+            }
+
+            function cerrarVentana(){
+                miVentana.close();
+            }
+
+            function moverVentana() {
+                miVentana.moveBy(100, 100);
+            }
+
+            function redimensionarVentana() {
+                miVentana.resizeBy(100, 100);
+            }
+            
+            function cambiarFoco() {
+                miVentana.focus();
+            }
+
+            function imprimirVentana() {
+                miVentana.print();
+            }
+
+    </script>
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <button onclick="cerrarVentana()">Cerrar ventana</button>
+    <button onclick="moverVentana()">Mover ventana</button>
+    <button onclick="redimensionarVentana()">Redimensionar ventana</button>
+    <button onclick="cambiarFoco()">Cambiar foco</button>
+    <button onclick="imprimirVentana()">Imprimir ventana</button>
+    <button onclick="miVentana.blur()">Quitar foco</button>
+</body>
+</html>

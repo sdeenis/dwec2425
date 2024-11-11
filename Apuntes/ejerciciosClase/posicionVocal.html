@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Realiza un script que muestre la posición de la primera vocal ( así como la propia vocal) de un texto introducido por teclado.
+
+        // Realiza el mismo ejercicio utilizando el método includes.
+
+        var texto = prompt("Introduce la frase: ");
+        texto = texto.toLowerCase();
+        var cont = 0;
+        var vocales = ['a', 'e', 'i', 'o', 'u'];
+        var primeraVocal = null;
+        //console.log(texto);
+        /*
+        var longitud = texto.length;
+        for (i = 0; i < longitud; i++) {
+            if (texto.charAt(i) === 'a' || texto.charAt(i) === 'e'|| texto.charAt(i) === 'i'|| texto.charAt(i) === 'o' || texto.charAt(i) === 'u') {
+                window.alert(i+1);
+                cont++;
+                break;
+            }
+        }
+        if (cont == 0) {
+            window.alert("No hay vocales")
+        } 
+        
+        */
+
+
+        for (let i = 0, limite = texto.length; i < limite; i++) {
+            if (vocales.includes(texto[i])) {
+                primeraVocal = texto[i];
+            }
+            if (primeraVocal) {
+                window.alert("El texto es: " + texto + "\nLa primera vocal está en la posición " + (texto.indexOf(primeraVocal) + 1) + " y es la vocal " + primeraVocal);
+                break;
+            }
+        }
+
+        if (!primeraVocal) {
+            window.alert("no hay vocales")
+        }
+
+
+        //Forma bruta de hacerlo con includes
+        // if (texto.includes('a') || texto.includes('e') || texto.includes('i') || texto.includes('o') || texto.includes('u')) {
+        //     var posicionVocales = [Number(texto.indexOf('a')), Number(texto.indexOf('e')), Number(texto.indexOf('i')), Number(texto.indexOf('o')), Number(texto.indexOf('u'))];
+        //     posicionVocales.sort();
+
+        //     var j = 0;
+        //     while (posicionVocales[j] == -1) {
+        //         j++;
+        //     }
+
+        //     window.alert("El texto es: " + texto + "\nLa primera vocal está en la posición " + (posicionVocales[j] + 1) + " y es la vocal " + texto.charAt(posicionVocales[j]));
+        // } else {
+        //     window.alert("No hay vocales");
+        // }
+
+    </script>
+</body>
+
+</html>
