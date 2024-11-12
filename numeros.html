@@ -1,0 +1,62 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor a Números Romanos</title>
+</head>
+<body>
+    <script>
+        try {
+            // Solicitar al usuario un número entre 1 y 300
+            let numero = parseInt(prompt("Escribe un número del 1 al 300"));
+
+            // Validación de la entrada
+            if (isNaN(numero) || numero < 1 || numero > 300) {
+                alert("Número inválido. Debe estar entre 1 y 300.");
+            } else {
+                let miArray = [];
+
+                // Proceso de conversión a números romanos
+                while (numero > 0) {
+                    if (numero >= 100) {
+                        numero -= 100;
+                        miArray.push("C");
+                    } else if (numero >= 90) {
+                        numero -= 90;
+                        miArray.push("XC");
+                    } else if (numero >= 50) {
+                        numero -= 50;
+                        miArray.push("L");
+                    } else if (numero >= 40) {
+                        numero -= 40;
+                        miArray.push("XL");
+                    } else if (numero >= 10) {
+                        numero -= 10;
+                        miArray.push("X");
+                    } else if (numero >= 9) {
+                        numero -= 9;
+                        miArray.push("IX");
+                    } else if (numero >= 5) {
+                        numero -= 5;
+                        miArray.push("V");
+                    } else if (numero >= 4) {
+                        numero -= 4;
+                        miArray.push("IV");
+                    } else {
+                        numero -= 1;
+                        miArray.push("I");
+                    }
+                }
+
+                // Mostrar el resultado en una alerta
+                alert("Número romano: " + miArray.join(""));
+            }
+        } catch (err) {
+            alert("Error: " + err.message);
+        }
+    </script>
+</body>
+</html>
