@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 2.- Crea la lista de contactos en un array, de tal manera que cada uno de sus elementos
+será un objeto que describa a un solo usuario (tres propiedades).
+Al final de la lista declarada de esta manera, agrega un nuevo contacto usando un
+método de array, apropiado. El nuevo contacto es: Maisie Haley / 0913 531 3030 /
+risus.Quisque@urna.ca.
+Muestra el primer y último contacto, de nuevo en el formato: nombre / teléfono / correo
+electrónico. (length) -->
+
+    <script>
+        let nombre1 = "Maxwell Wright";
+        let nombre2 = "Raja Villareal";
+        let nombre3 = "Helen Richards";
+
+        let telefono1 = "(0191) 719 6495";
+        let telefono2 = "0866 398 2895";
+        let telefono3 = "0800 1111";
+
+        let correo1 = "Curabitur.egestas.nunc@nonummyac.co.uk";
+        let correo2 = "posuere.vulputate@sed.com";
+        let correo3 = "libero@convallis.edu";
+
+        let contactos = [
+            { nombre: "Maxwell Wright", telefono: "(0191) 719 6495", correo: "Curabitur.egestas.nunc@nonummyac.co.uk" },
+            { nombre: "Raja Villareal", telefono: "0866 398 2895", correo: "posuere.vulputate@sed.com" },
+            { nombre: "Helen Richards", telefono: "0800 1111", correo: "libero@convallis.edu" }
+        ];
+
+        let nuevoContacto = { nombre: "Maisie Haley", telefono: "0913 531 3030", correo: "risus.Quisque@urna.ca" };
+        contactos.push(nuevoContacto);
+
+        console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+
+    </script>
+</body>
+
+</html>

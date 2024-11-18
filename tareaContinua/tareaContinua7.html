@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 7.- Da al usuario la opción de seleccionar una acción sort de la lista. Cuando se selecciona
+esta opción, el usuario debería poder especificar si desea ordenar los contactos por
+nombre, teléfono o correo electrónico.-->
+
+    <script>
+        let nombre1 = "Maxwell Wright";
+        let nombre2 = "Raja Villareal";
+        let nombre3 = "Helen Richards";
+
+        let telefono1 = "(0191) 719 6495";
+        let telefono2 = "0866 398 2895";
+        let telefono3 = "0800 1111";
+
+        let correo1 = "Curabitur.egestas.nunc@nonummyac.co.uk";
+        let correo2 = "posuere.vulputate@sed.com";
+        let correo3 = "libero@convallis.edu";
+
+        let contactos = [
+            { nombre: "Maxwell Wright", telefono: "(0191) 719 6495", correo: "Curabitur.egestas.nunc@nonummyac.co.uk" },
+            { nombre: "Raja Villareal", telefono: "0866 398 2895", correo: "posuere.vulputate@sed.com" },
+            { nombre: "Helen Richards", telefono: "0800 1111", correo: "libero@convallis.edu" }
+        ];
+
+        let nuevoContacto = { nombre: "Maisie Haley", telefono: "0913 531 3030", correo: "risus.Quisque@urna.ca" };
+        contactos.push(nuevoContacto);
+
+        function showContact(contactos, indice) {
+            if (contactos instanceof Array && indice >= 0 && indice < contactos.length) {
+                console.log(contactos[indice].nombre + " / " + contactos[indice].telefono + " / " + contactos[indice].correo);
+            } else {
+                console.log("No se ha podido mostrar el contacto");
+            }
+        }
+
+        function showAllContacts(contactos) {
+            if (contactos instanceof Array) {
+                for (let i = 0; i < contactos.length; i++) {
+                    console.log(contactos[i].nombre + " / " + contactos[i].telefono + " / " + contactos[i].correo);
+                }
+            } else {
+                console.log("No se han podido mostrar los contactos");
+            }
+        }
+
+        function addNewContact(contactos, nombre, telefono, correo) {
+            if (contactos instanceof Array && nombre != "" && telefono != "" && correo != "") {
+                let nuevoContacto5 = {nombre: nombre, telefono: telefono, correo: correo};
+                contactos.push(nuevoContacto5);
+                console.log("Contacto añadido correctamente");
+            } else {
+                console.log("Faltan datos para añadir el contacto");
+            }
+        }
+
+        function sortContacts(contactos, criterio) {
+            if (contactos instanceof Array) {
+                if (criterio == "nombre") {
+                    contactos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                } else if (criterio == "telefono") {
+                    contactos.sort((a, b) => a.telefono.localeCompare(b.telefono));
+                } else if (criterio == "correo") {
+                    contactos.sort((a, b) => a.correo.localeCompare(b.correo));
+                }
+            }
+        }
+
+        let opcion2 = "";
+        while (opcion2 != "salir") {
+            opcion2 = prompt ("¿Qué quieres hacer con la lista? \n Mostrar el primer contacto (teclea primero) \n Mostrar el último contacto (teclea último) \n Mostrar todos los contactos (teclea todos)\n Añadir un nuevo contacto (teclea nuevo)\n Ordenar la lista (teclea ordenar)\n Salir del programa (teclea salir)");
+            if (opcion2 == "primero") {
+                showContact(contactos, 0);
+            } else if (opcion2 == "último") {
+                showContact(contactos, contactos.length - 1);
+            } else if (opcion2 == "todos") {
+                showAllContacts(contactos);
+            } else if (opcion2 == "nuevo") {
+                addNewContact(contactos, prompt("Introduce el nombre del contacto"), prompt("Introduce el teléfono del contacto"), prompt("Introduce el correo del contacto"));
+            } else if (opcion2 == "ordenar") {
+                sortContacts(contactos, prompt("¿Por qué criterio quieres ordenar la lista? (nombre, telefono, correo)"));
+            }
+        }
+    </script>
+</body>
+
+</html>
