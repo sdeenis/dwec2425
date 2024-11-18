@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // do {
+        //     alert("Por favor, introduzca una cantidad entre 6 y 16 minutos");
+        //     var minutos = parseInt(prompt("¿De cuántos minutos dispones?"));
+        // }
+        // while (isNaN(minutos) || minutos < 6 || minutos > 16);
+
+
+        do {
+            try {
+                var minutos = parseInt(prompt("¿De cuántos minutos dispones?"));
+                if (isNaN(minutos)) {
+                    throw "No has introducido un número";
+                }
+                if (minutos < 6 || minutos > 16) {
+                    throw "El número de minutos debe estar entre 6 y 16";
+                }
+            } catch (error) {
+                alert(error);
+            }
+        }
+        while (isNaN(minutos) || minutos < 6 || minutos > 16);
+    </script>
+</body>
+
+</html>

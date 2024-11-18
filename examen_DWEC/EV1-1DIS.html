@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV1-1DIS</title>
+</head>
+
+<body>
+     <p id="frase"></p> <!--Párrafo donde introduciremos la cadena direccionesResultado-->
+    <script>
+
+        const direcciones = ["n", "s", "e", "o"]; //Constante donde están las direcciones posibles
+        var direccionesResultado = []; //Variable donde guardaremos la cadena de direcciones. Será tan grande como minutos introduzcamos.
+        let numeroMinutos = Number(prompt("Introduce los minutos libres que tienes: ")); //Pedimos los minutos al usuario
+
+        //Comprobamos que numeroMinutos es mayor que 8, menor que 22, y un número par entero.
+        while (numeroMinutos < 8 || numeroMinutos > 22 || isNaN(Number(numeroMinutos)) || numeroMinutos % 2 !== 0) {
+            if (numeroMinutos < 8) {
+                numeroMinutos = Number(prompt("El número de minutos no puede ser menor de 8: "));
+            }
+            if (numeroMinutos > 22) {
+                numeroMinutos = Number(prompt("El número de minutos no puede ser mayor de 22: "));
+            }
+            if (isNaN(Number(numeroMinutos))) {
+                numeroMinutos = Number(prompt("Ingresa solo números: "));
+            }
+            if (numeroMinutos % 2 !== 0) {
+                numeroMinutos = Number(prompt("Sólo números pares, por favor. En caso contrario, no podrás volver al inicio: "));
+            }
+        }
+
+        
+        indicaciones(numeroMinutos); //Llamamos a la función declarada más abajo.
+
+
+        //funcion que indica las direcciones. Recibe el numeroMinutos y guarda en la variable global direccionesResultado las distintas direcciones aleatorias.
+        function indicaciones(numeroMinutos) {
+            //Con el for nos interesa recorrer la mitad de minutos, puesto que si en 8 minutos vamos más de 4 veces en la misma dirección, ya no podremos volver.
+            for (let i = 1; i <= (numeroMinutos/2) ; i++) {
+                let direccion = direcciones[Math.floor(Math.random() * direcciones.length)]; //Generamos una dirección aleatoria
+
+                console.log(direccion)
+                
+                direccionesResultado.push(direccion); //Guardamos la dirección en el array global
+                
+                //Por cada dirección generada, necesitamos introducir la dirección opuesta en el array global para que se pueda volver al inicio.
+                //Para ello, introducimos la dirección opuesta en una posición aleatoria que va de 0 al número de minutos.
+                if (direccion == "n") {
+                    direccionesResultado.splice(Math.floor(Math.random() * numeroMinutos), 0, "s")
+                } else if (direccion == "s") {
+                    direccionesResultado.splice(Math.floor(Math.random() * numeroMinutos), 0, "n")
+                } else if (direccion == "e") {
+                    direccionesResultado.splice(Math.floor(Math.random() * numeroMinutos), 0, "o")
+                } else if (direccion == "o") {
+                    direccionesResultado.splice(Math.floor(Math.random() * numeroMinutos), 0, "e")
+                }
+            }
+        }
+
+
+
+        document.getElementById("frase").innerHTML = direccionesResultado; //Imprimimos el resultado en el párrafo
+    </script>
+</body>
+
+</html>
