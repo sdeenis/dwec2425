@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV1-2DIS</title>
+</head>
+
+<body>
+    <p id="frase"></p> <!--Párrafo donde introduciremos la pirámide -->
+    <script>
+        let lienzo = document.getElementById("lienzo");
+        let piramideDeNumeros = ""; //Variable donde guardaremos la pirámide de números
+        let numeroSolicitado = parseInt(prompt("Introduce un número entero entre 1 y 50: ")); //Solicitamos el número máximo de la pirámide
+
+        //Comprobamos que el número solicitado es mayor que 1, menor que 50 y que no se una cadena de texto
+        while (numeroSolicitado < 1 || numeroSolicitado > 50 || isNaN(Number(numeroSolicitado))) {
+            if (numeroSolicitado < 1) {
+                numeroSolicitado = Number(prompt("El número no puede ser menor de 1: "));
+            }
+            if (numeroSolicitado > 50) {
+                numeroSolicitado = Number(prompt("El número no puede ser mayor de 50: "));
+            }
+            if (isNaN(Number(numeroSolicitado))) {
+                numeroSolicitado = Number(prompt("Ingresa solo números: "));
+            }
+        }
+
+        
+        //El primer for controla la fila en la que estamos. Al final de cada fila, insertamos un <br>
+        for (let i = numeroSolicitado; i > 0; i--) {
+            //El segundo for controla la cantidad de veces que se repite el número en cada fila
+            for (let j = 0; j < i; j++) {
+                piramideDeNumeros += i;
+            }
+            piramideDeNumeros += "<br>";
+        }
+        
+
+
+        document.getElementById("frase").innerHTML = piramideDeNumeros; //Imprimimos el resultado en el párrafo
+    </script>
+</body>
+
+</html>

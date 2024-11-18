@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Ejercicio github
+Se va a desarrollar un programa en siete pasos.
+Cada uno de ellos supondrá la utilización de una nueva sentencia o estructura o
+método…en fin un cambio de desarrollo (una mejora) sobre el anterior.
+Cada una de las siete versiones numeradas deben dar lugar a una nueva rama en GitHub:
+tareaContinua1 a tareaContinua7. -->
+
+<!-- 1.- Elabora una lista de contactos
+Inicialmente tendrá los valores de la tabla adjunta:
+Declara e inicializa las variables donde se almacenará toda la información (nueve
+variables en total). Muestra en la consola información sobre el primer y último contacto
+en el formulario: nombre/teléfono/correo. -->
+    <script>
+        let nombre1 = "Maxwell Wright";
+        let nombre2 = "Raja Villareal";
+        let nombre3 = "Helen Richards";
+
+        let telefono1 = "(0191) 719 6495";
+        let telefono2 = "0866 398 2895";
+        let telefono3 = "0800 1111";
+
+        let correo1 = "Curabitur.egestas.nunc@nonummyac.co.uk";
+        let correo2 = "posuere.vulputate@sed.com";
+        let correo3 = "libero@convallis.edu";
+
+        // console.log("Primer contacto: " + nombre1 + " / " + telefono1 + " / " + correo1);
+        // console.log("Último contacto: " + nombre3 + " / " + telefono3 + " / " + correo3);
+
+//         2.- Crea la lista de contactos en un array, de tal manera que cada uno de sus elementos
+// será un objeto que describa a un solo usuario (tres propiedades).
+// Al final de la lista declarada de esta manera, agrega un nuevo contacto usando un
+// método de array, apropiado. El nuevo contacto es: Maisie Haley / 0913 531 3030 /
+// risus.Quisque@urna.ca.
+// Muestra el primer y último contacto, de nuevo en el formato: nombre / teléfono / correo
+// electrónico. (length)
+        let contactos = [
+            {nombre: "Maxwell Wright", telefono: "(0191) 719 6495", correo: "Curabitur.egestas.nunc@nonummyac.co.uk"},
+            {nombre: "Raja Villareal", telefono: "0866 398 2895", correo: "posuere.vulputate@sed.com"},
+            {nombre: "Helen Richards", telefono: "0800 1111", correo: "libero@convallis.edu"}
+        ];
+
+        let nuevoContacto = {nombre: "Maisie Haley", telefono: "0913 531 3030", correo: "risus.Quisque@urna.ca"};
+        contactos.push(nuevoContacto);
+
+        // console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        // console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+
+
+//         3.- Modifica el programa para agregar, al final de la lista, el contacto que el usuario
+// introducirá durante la ejecución del programa. (prompt). Al final, muestra el primer y
+// último contacto de la lista.
+        // let nuevoContacto2 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
+        // contactos.push(nuevoContacto2);
+
+        // console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        // console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+
+       
+//         4.- Modifica el programa para que el usuario pueda elegir lo que quiere hacer con la
+// lista. Las opciones serán:
+// • Mostrar el primer contacto (primero)
+// • Mostrar el último contacto (último)
+// • Añadir un nuevo contacto (nuevo)
+// Al agregar un nuevo contacto, verifica si el usuario ha ingresado todos los datos
+// necesarios. Si falta al menos uno de los tres valores (nombre, teléfono o correo
+// electrónico), no se agrega el contacto.
+        // let opcion = prompt("¿Qué quieres hacer con la lista?: \n 1. Mostrar el primer contacto \n 2. Mostrar el último contacto \n 3. Añadir un nuevo contacto");
+        // if (opcion == 1) {
+        //     console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        // } else if (opcion == 2) {
+        //     console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+        // } else if (opcion == 3) {
+        //     let nuevoContacto3 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
+        //     if (nuevoContacto3.nombre != "" && nuevoContacto3.telefono != "" && nuevoContacto3.correo != "") {
+        //         contactos.push(nuevoContacto3);
+        //     } else {
+        //         console.log("Faltan datos para añadir el contacto");
+        //     }
+        // }
+
+
+//         5.- Encierra todo el programa en un bucle para que al usuario se le pregunte
+// repetidamente qué quiere hacer. El usuario puede optar por:
+// • Mostrar el primer contacto (primero)
+// • Mostrar el último contacto (último)
+// • Mostrar todos los contactos (todos)
+// • Añadir un nuevo contacto (nuevo)
+// • Salir del programa (salir)
+// Después de ejecutar la acción seleccionada, el programa le dará la oportunidad de elegir
+// nuevamente. El programa debe finalizar las acciones solo después de que el usuario dé
+// un comando específico (salir).
+        // let opcion = "";
+        // while (opcion != "salir") {
+        //     opcion = prompt ("¿Qué quieres hacer con la lista? \n Mostrar el primer contacto (teclea primero) \n Mostrar el último contacto (teclea último) \n Mostrar todos los contactos (teclea todos)\n Añadir un nuevo contacto (teclea nuevo)\n Salir del programa (teclea salir)");
+        //     if (opcion == "primero") {
+        //         console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+        //     } else if (opcion == "último") {
+        //         console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+        //     } else if (opcion == "todos") {
+        //         for (let i = 0; i < contactos.length; i++) {
+        //             console.log(contactos[i].nombre + " / " + contactos[i].telefono + " / " + contactos[i].correo);
+        //         }
+        //     } else if (opcion == "nuevo") {
+        //         let nuevoContacto4 = {nombre: prompt("Introduce el nombre del contacto"), telefono: prompt("Introduce el teléfono del contacto"), correo: prompt("Introduce el correo del contacto")};
+        //         if (nuevoContacto4.nombre != "" && nuevoContacto4.telefono != "" && nuevoContacto4.correo != "") {
+        //             contactos.push(nuevoContacto4);
+        //             console.log("Contacto añadido correctamente");
+        //         } else {
+        //             console.log("Faltan datos para añadir el contacto");
+        //         }
+        //     }
+        // }
+
+
+//         6.- Trata de organizar el código de tu programa (¿quitando switch?) usando funciones.
+// Define y llama a tres funciones en los lugares apropiados:
+// • showContact: la función debe tomar dos argumentos; el primero es la lista de
+// contactos y el segundo es el número de índice del contacto a mostrar; dentro de
+// la función, verifica si se pasan los argumentos correctos, es decir, si los contactos
+// son un array (utiliza la construcción instanceofArray para esto).
+// • showAllContacts: la función debe tomar un argumento, la lista de contactos;
+// dentro de la función, verifica si el argumento dado es un array.
+// • addNewContact: la función debe tomar cuatro argumentos, una lista de
+// contactos y los datos del nuevo contacto, es decir: nombre, teléfono y número;
+// antes de agregar un nuevo contacto, verifica si el argumento pasado es un array
+// y si los datos del nuevo contacto tienen algún valor.
+        function showContact(contactos, indice) {
+            if (contactos instanceof Array && indice >= 0 && indice < contactos.length) {
+                console.log(contactos[indice].nombre + " / " + contactos[indice].telefono + " / " + contactos[indice].correo);
+            } else {
+                console.log("No se ha podido mostrar el contacto");
+            }
+        }
+
+        function showAllContacts(contactos) {
+            if (contactos instanceof Array) {
+                for (let i = 0; i < contactos.length; i++) {
+                    console.log(contactos[i].nombre + " / " + contactos[i].telefono + " / " + contactos[i].correo);
+                }
+            } else {
+                console.log("No se han podido mostrar los contactos");
+            }
+        }
+
+        function addNewContact(contactos, nombre, telefono, correo) {
+            if (contactos instanceof Array && nombre != "" && telefono != "" && correo != "") {
+                let nuevoContacto5 = {nombre: nombre, telefono: telefono, correo: correo};
+                contactos.push(nuevoContacto5);
+                console.log("Contacto añadido correctamente");
+            } else {
+                console.log("Faltan datos para añadir el contacto");
+            }
+        }
+
+        let opcion = "";
+        while (opcion != "salir") {
+            opcion = prompt ("¿Qué quieres hacer con la lista? \n Mostrar el primer contacto (teclea primero) \n Mostrar el último contacto (teclea último) \n Mostrar todos los contactos (teclea todos)\n Añadir un nuevo contacto (teclea nuevo)\n Salir del programa (teclea salir)");
+            if (opcion == "primero") {
+                showContact(contactos, 0);
+            } else if (opcion == "último") {
+                showContact(contactos, contactos.length - 1);
+            } else if (opcion == "todos") {
+                showAllContacts(contactos);
+            } else if (opcion == "nuevo") {
+                addNewContact(contactos, prompt("Introduce el nombre del contacto"), prompt("Introduce el teléfono del contacto"), prompt("Introduce el correo del contacto"));
+            }
+        }
+
+
+    </script>
+</body>
+</html>
