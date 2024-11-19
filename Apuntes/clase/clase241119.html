@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="emojis"></p>
+    <script>
+        //Unicode usa 16 bits
+        //Ascii usa 7 bits u 8 el ampliado
+        //string.fromCodePoint(number) devuelve el caracter unicode
+        //codePointAt() devuelve el valor unicode
+
+        const hola = "Mano";
+        const hola2 = 77;
+
+        let emoji1 = String.fromCodePoint(0x26a1);
+        let emoji2 = String.fromCodePoint(0x26d4);
+        let emoji3 = String.fromCodePoint(0x1f600);
+        let emoji4 = String.fromCodePoint(0x1f697);
+        let emoji5 = String.fromCodePoint(0x0041);
+        let emoji6 = String.fromCodePoint(hola2);
+
+        document.getElementById('emojis').innerHTML = emoji1 + emoji2 + emoji3 + emoji4 + emoji5 + hola.codePointAt(0) + emoji6;
+    </script>
+</body>
+</html>
