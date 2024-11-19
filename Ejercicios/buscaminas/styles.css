@@ -1,15 +1,79 @@
-.celda {
-    width: 10px;
-    height: 10px;
-    background-color: rgb(174, 0, 255);
-    margin: 2px;
-    border-color: 1px solid black;
-}
-
-#contenedor {
-    display:flex;
-    align-items: center;
+body {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+    /* background: linear-gradient(90deg, #263849, #41506b); */
+
+    background-color: #41506b;
+    opacity: 0.8;
+    background-image: linear-gradient(30deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(150deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(30deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(150deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(60deg, #26384977 25%, transparent 25.5%, transparent 75%, #26384977 75%, #26384977), linear-gradient(60deg, #26384977 25%, transparent 25.5%, transparent 75%, #26384977 75%, #26384977);
+    background-size: 28px 49px;
+    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
+
     flex-direction: column;
 }
 
+h1 {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    background-color: #35bcbf;
+    border: 2px solid black;
+    background-color: #35bcbf;
+    opacity: 0.8;
+    background-image: linear-gradient(30deg, #41506b 12%, transparent 12.5%, transparent 87%, #41506b 87.5%, #41506b), linear-gradient(150deg, #41506b 12%, transparent 12.5%, transparent 87%, #41506b 87.5%, #41506b), linear-gradient(30deg, #41506b 12%, transparent 12.5%, transparent 87%, #41506b 87.5%, #41506b), linear-gradient(150deg, #41506b 12%, transparent 12.5%, transparent 87%, #41506b 87.5%, #41506b), linear-gradient(60deg, #41506b77 25%, transparent 25.5%, transparent 75%, #41506b77 75%, #41506b77), linear-gradient(60deg, #41506b77 25%, transparent 25.5%, transparent 75%, #41506b77 75%, #41506b77);
+    background-size: 28px 49px;
+    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
+}
+
+button:active {
+    background-color: #90f6d7;
+    opacity: 0.8;
+    background-image: linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77);
+    background-size: 28px 49px;
+    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
+}
+
+button:hover {
+    background-color: #90f6d7;
+    opacity: 0.8;
+    background-image: linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77);
+    background-size: 28px 49px;
+    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
+}
+
+
+.tablero {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border: 5px solid #90f6d7;
+    border-radius: 3%;
+}
+
+.fila {
+    padding: 0px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.casilla {
+    padding: 0px;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+
+}
