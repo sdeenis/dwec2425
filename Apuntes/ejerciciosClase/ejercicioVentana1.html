@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ·Abrir una nueva ventana de dimensiones 500x200 en la posicion (100,200)
+    ·Escribir en ella con document.write un titulo h1 que diga hola
+    ·Desplazarla 300px hacia abajo y 100 a la izq
+    ·Cerrarla -->
+
+    <script>
+        let ventana = window.open("", "", "width=500, height=200, top=100, left=200");
+        setTimeout("ventana.document.write('<h1>Hola</h1>')", 1000);
+        setTimeout("ventana.moveBy(100, 300)", 2000);
+        setTimeout("ventana.close()", 3000);
+    </script>
+
+    
+
+</body>
+</html>

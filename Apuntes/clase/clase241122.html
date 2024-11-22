@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="respuesta"></p>
+    <p id="reloj"></p>
+    <script>
+        //objeto confirm
+
+
+        //document.getElementById('respuesta').innerHTML = (confirm("¿te gusta js?")) ? "Si" : "No";
+        // respuesta = confirm("¿te gusta js?");
+        // alert(respuesta ? "Si" : "No");
+
+        //objeto window y setTimeout: ejecuta una funcion despues de un tiempo
+        //window.setTimeout(funcion, tiempo en milisegundos)
+        //objeto window y clearTimeout: cancela la ejecucion de un setTimeout
+        //window.clearTimeout(id del setTimeout)
+        //window y setInterval: ejecuta una funcion cada cierto tiempo
+        //window.setInterval(funcion, tiempo en milisegundos)
+
+        
+
+        function saludar(){
+            alert("Holaaaaaaaaaaa");
+        }
+
+         //al meterlo en una variable, se ejecuta al instante
+
+        function reloj() {
+            var miFecha = new Date();
+            document.getElementById('reloj').innerHTML = miFecha.getSeconds();
+        }
+
+        var int = setInterval(reloj, 1000);
+    </script>
+    <button onclick="sal = setInterval(saludar, 4000)">Saludar</button>
+    <!-- <button onclick="setInterval(reloj, 1000)">Reloj</button> -->
+     <!-- <button onclick="int">Reloj</button> -->
+    <button onclick="clearTimeout(int)">parar reloj</button>
+    <button onclick="clearInterval(sal)">parar saludo</button>
+</body>
+</html>

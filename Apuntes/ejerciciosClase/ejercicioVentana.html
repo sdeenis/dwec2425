@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //setTimeout("document.write('<button onclick=ventana2.window.close()>Cerrar ventana2</button>')", 2000);
+
+        let ventana1 = window.open("", "", "width=500, height=200, top=100, left=200");
+        setTimeout("ventana1.document.write('<h1>Hola</h1>')", 1000);
+        setTimeout("ventana1.moveBy(100, 300)", 2000);
+        setTimeout("ventana1.close()", 3000);
+
+        let ventana2 = window.open("", "", "width=180, height=99, top=300, left=400");
+        setTimeout("ventana2.document.write('<h1>Bienvenido</h1><button onclick=window.close()>Cerrar</button>')", 2000);
+    </script>
+</body>
+</html>
