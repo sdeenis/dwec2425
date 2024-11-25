@@ -23,7 +23,18 @@
         let emoji5 = String.fromCodePoint(0x0041);
         let emoji6 = String.fromCodePoint(hola2);
 
-        document.getElementById('emojis').innerHTML = emoji1 + emoji2 + emoji3 + emoji4 + emoji5 + hola.codePointAt(0) + emoji6;
+        let longitud = String.fromCodePoint(0x26a1).length;
+        
+        //Si se unen los cuatro emojis individuales que representan una familia con una cadena vacia, se obtienen
+        //los 4 emojis individuales unidos en una cadena.
+
+        let emojiFamilia = "👨‍👩‍👦‍👦";
+        let emojiFamilia2 = "👨" + "‍" + "👩" + "‍" + "👦" + "‍" + "👦";  
+
+        let emojiFamilia3 = ["👨", "👩", "👦", "👦"].join("");
+        let emojiFamilia4 = ["👨", "👩", "👦", "👦"].join("paste");
+
+        document.getElementById('emojis').innerHTML = emoji1 + emoji2 + emoji3 + emoji4 + emoji5 + hola.codePointAt(0) + emoji6 + longitud + "<br>" + emojiFamilia + "<br>" + emojiFamilia2 + "<br>" + emojiFamilia3 + "<br>" + emojiFamilia4;
     </script>
 </body>
 </html>

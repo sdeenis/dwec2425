@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="navegador"></p>
+    <button onclick="atras()">Atrás</button>
+    <button onclick="adelante()">Adelante</button>
+    <button onclick="history.go(2)">Ir a la segunda página</button>
+    <script>
+        //Objeto navegator.
+        //Guarda información sobre el navegador.
+        //No hay un estándar público pero la mayoría de los navegadores lo implementan.
+
+        var texto = "";
+        texto += "<br/>CodeName: " + navigator.appCodeName;
+        texto += "<br/>Name: " + navigator.appName;
+        texto += "<br/>Version: " + navigator.appVersion;
+        texto += "<br/>Motor: " + navigator.product;
+        texto += "<br/>Plataforma: " + navigator.platform;
+        texto += "<br/>OnLine: " + navigator.onLine;
+        texto += "<br/>Idioma: " + navigator.language;
+        texto += "<br/>Cookies: " + navigator.cookieEnabled;
+        texto += "<br/>UserAgent: " + navigator.userAgent;
+        texto += "<br/>Geolocation: " + navigator.geolocation;
+        console.log(navigator);
+        console.log(navigator.geolocation);
+
+
+
+        alert("Java activado: " + navigator.javaEnabled()); //el unico metodo de screen
+
+
+
+        //Objeto screen: da información sobre la pantalla física del dispositivo.
+        //width, height, availWidth, availHeight, colorDepth, pixelDepth
+
+        //screen te da info sobre la `pantalla y window sobre la ventana del navegador.
+        //Window te da acceso al DOM.
+
+        texto += "<br/>Ancho: " + screen.width;
+        texto += "<br/>Alto: " + screen.height;
+        texto += "<br/>Ancho disponible: " + screen.availWidth;
+        texto += "<br/>Alto disponible: " + screen.availHeight;
+        texto += "<br/>Profundidad de color: " + screen.colorDepth;
+        texto += "<br/>Profundidad de pixel: " + screen.pixelDepth;
+
+
+
+        //objeto history: contiene el historial de la ventana.
+        //history.length: devuelve el número de páginas en el historial.
+        //history.back(): carga la página anterior en el historial.
+        //history.forward(): carga la página siguiente en el historial.
+        //history.go(n): carga la página n en el historial.
+
+        function atras() {
+            history.back();
+        }
+
+        function adelante() {
+            history.forward();
+        }
+
+        alert("Número de páginas en el historial: " + history.length);
+
+
+        //Como definir objetos
+        // var objeto = new Object();
+        // objeto.nombre = "Juan";
+        // objeto.apellido = "Perez";
+        // objeto.edad = 30;
+
+        // var objeto = {
+        //     nombre: "Juan",
+        //     apellido: "Perez",
+        //     edad: 30
+        // };
+
+        //Constructor
+        // function Persona(nombre, apellido, edad) {
+        //     this.nombre = nombre;
+        //     this.apellido = apellido;
+        //     this.edad = edad;
+        // }
+
+        // var persona1 = new Persona("Juan", "Perez", 30);
+
+
+        //Como acceder a propiedades:
+        // objeto.nombre
+        // objeto["nombre"]
+
+        //forma de recorrerlos:
+        //for (let propiedad in objeto) {
+        //    console.log(propiedad + ": " + objeto[propiedad]);
+        //}
+
+        //asignar nuevas propiedades:
+        // objeto.direccion = "Calle falsa 123";
+        //borrar propiedades:
+        // delete objeto.direccion;
+
+
+        const player = {
+            nombre: "Juan Garcia",
+            aprobadas: 4,
+            suspendidas: 6,
+            toString: function () {
+                return `${this.nombre} (${this.aprobadas} / ${this.suspendidas})`;
+            }
+        };
+
+        console.log("Mi jugador es " + player);
+
+
+        //Prototipos: esqueleto del objeto
+
+
+
+
+        document.getElementById('navegador').innerHTML = texto;
+    </script>
+</body>
+
+</html>
