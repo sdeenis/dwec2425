@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Fecha fija
+        const fechaFija = new Date("2022-01-04");
+        const fechaFijaEnMs = fechaFija.getTime();
+        
+        // Fecha actual
+        let hoy = Date.now();
+        
+        // Calcular diferencia en milisegundos
+        let diferencia = hoy - fechaFijaEnMs;
+        
+        // Calcular años, meses y días
+        let años = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 365)); // Años completos
+        
+        // Calcular meses restantes después de los años completos
+        let meses = Math.floor((diferencia % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30)); // Meses completos
+        
+        // Calcular días restantes después de los meses completos
+        let diasRestantes = Math.floor((diferencia % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)); // Días restantes
+        
+        console.log("Han pasado " + años + " años, " + meses + " meses y " + diasRestantes + " días desde el 4 de enero de 2022");
+        </script>
+        
+</body>
+
+</html>

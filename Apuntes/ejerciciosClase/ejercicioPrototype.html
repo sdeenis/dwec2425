@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Persona(nom,ape,an) {
+            this.nom = nom;
+            this.ape = ape;
+            this.an = an;
+            this.nombreCompleto = function() {
+                return this.nombre + " " + this.ape;
+            }
+        }
+
+        var ana = new Persona("Ana", "García", "1990");
+        var jose = new Persona("José", "López", "1992");
+
+        ana.nacionalidad = "Española";
+
+        ana.nacimiento = function () {
+            return this.nombre + " nació en " + this.an;
+        }
+
+        alert(ana.nacionalidad); //Española
+        alert(jose.nacionalidad); //undefined
+
+        alert(ana.nacimiento()); //Ana nació en 1990
+        //alert(jose.nacimiento()); //jose.nacimiento is not a function
+
+        Persona.prototype.boda = 2020;
+        Persona.prototype.fechaBoda = function() {
+            return this.nombre + " se casó en " + this.boda;
+        }
+        var juan = new Persona("Juan", "Sánchez", "1994");
+        alert(juan.nom); //Juan Sánchez
+        alert(juan.fechaBoda()); //2020
+        console.log(Persona.prototype)
+        
+
+        //ana.__proto__ != persona.prototype
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Prototipos: esqueleto del objeto
+        //Los objetos en JS tienen un prototipo que es un objeto en sí mismo. Contiene un objeto que incluye 
+        //las propiedades y métodos que el objeto hereda.
+
+        //Crear objeto persona
+        function Persona(nombre, apellido){
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+
+        let persona1 = new Persona("Juan", "Perez");
+
+        //Crear un prototipo
+        Persona.prototype.boda = "2020"
+
+        Persona.prototype.saludar = function(){
+            console.log("Hola, soy " + this.nombre + " " + this.apellido + " y me casé en " + this.boda);
+        }
+
+        persona1.saludar();
+
+        //Con persona1.__proto__ se accede al prototipo de persona1
+        persona1.__proto__.despedida = function(){
+            console.log("Adios, soy " + this.nombre + " " + this.apellido + " y me casé en " + this.boda);
+        }
+
+
+        function Objeto(){}
+
+        const instancia = new Objeto();
+
+        console.log(instancia.__proto__ === Objeto.prototype); //true
+        console.log(Object.getPrototypeOf(instancia) === Objeto.prototype); //true
+
+
+        /*__proto__ es una propiedad de instancias de objetos.
+        Aounta al prototipo del objeto.
+        No se define explicitamente, es automatico
+
+        prototype es una propiedad de funciones constructoras
+        se usa como prototipo de las instancias creadas con new
+        se define al crear una funcion constructora
+        
+        
+        */
+    </script>
+</body>
+</html>
