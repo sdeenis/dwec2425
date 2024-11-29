@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="alert('la pag ha cargao')">
+    <h1>Prueba de eventos</h1>
+    <h3 id="cab1" onclick="this.innerHTML='JavaScript en XHTML'" onmouseover="this.style.color='red'"
+        onmouseout="this.style.color='white'">Pulsa aquí</h3>
+    <h3 onclick="cambiar(this)">Pulsa aquí</h3>
+
+    <a href="http://www.google.es" onclick="alertar()">Pulsa aquí</a> <br><br>
+    <a href="http://www.google.es" onclick="alertar(); return false;">Pulsa aquí (no te lleva)</a> <br><br>
+    <a href="http://www.google.es" onclick="return preguntar()">Pulsa aquí pa que salga la confirmacion</a> <br><br>
+
+    <script>
+        //programacion basada en eventos: instrucciones que se ejecutan cuando ocurre un suceso
+        //onload es un evento que se dispara cuando la pagina se carga
+        //en el evento click el manejador es onClick
+        //capturar un evento es programar la accion. El DOM es quien gestiona
+
+        //la sintaxis:
+        //<Elemento_HTML evento="códigoJS">
+        //<button onclick="this.innerHTML=Date()">Dame la fecha</button>
+
+        //<input type="button" value="Boton hola mundo" onclick="alert('Hola mundo')">
+        //no es elegante, lo suyo es diferenciar HTML y codigo JS
+
+        //Ejercicio: cabecera que al pulsar escriba mi texto, al pasar raton a rojo,
+        //al salir raton blanco con this.
+
+        function cambiar(elem) {
+            elem.innerHTML = "con funcion externa!!!!!!!!!";
+        }
+
+        function alertar() {
+            alert("Estas saliendo de la pagina");
+        }
+
+        function preguntar() {
+            return confirm("¿Estas seguro de que quieres salir?")
+        }
+
+    </script>
+</body>
+
+</html>
