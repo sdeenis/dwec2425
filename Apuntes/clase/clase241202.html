@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ejemplo de modelo de eventos tradicional</h1>
+    <h3 id="tradicional">hola</h3>
+    <h3 id="w3c">w3c</h3>
+    <h3 id="w3canonima">modelo del w3c con funciones anonimas</h3>
+
+    <h3 id="evento">evento</h3>
+    <h3 id ="parrafo1">parrafo1</h3>
+    <h3 id ="parrafo2">parrafo2</h3>
+    <script>
+        //Modelo de eventos tradicional
+        //es una forma mas correcta, ya que separa el codigo JS del HTML
+        //Sin embargo, tampoco es la mas recomendada pq solo permite 1 solo evento
+        //del mismo tipo por elemento
+        window.onload = function () {
+            alert('la pag ha cargao');
+            document.getElementById('tradicional').onclick = miMensaje; //sin parentesis
+            document.getElementById('tradicional').onmouseover = function () {
+                this.style.color = 'red';
+            }
+            function miMensaje() {
+                document.getElementById('tradicional').innerHTML = "Modelo de eventos tradicional";
+                //document.getElementById('tradiocional').onmouseover = null; //para que no se pueda volver a pulsar
+            }
+
+
+        }
+
+
+
+        //evento: mecanismo q se acciona cuando el usuario realiza un cambio
+        //capturar un evento es programar una accion pa q se realice una tarea
+        //el encargado de gestionar los eventos es el DOM
+        //manejador: la accion que se va a manejar (onclick, onmouseover, onmouseout...)
+
+
+        //modelo de eventos w3c
+        //ademas del modelo de eventos en linea (html y js a a la vez) y el modelo
+        //de eventos tradicional (js en el html), existe el modelo de eventos w3c
+        //metodo addEventListener: se usa pa vincular un evento a una funcion js
+        //parametros: el evento (sin On), la funcion a ejecutar y un booleano
+        //document.getElementById('tradicional').addEventListener('click',miMensaje,false);
+
+        // function alPulsar() {
+        //     document.getElementById('w3c').innerHTML = "Modelo de eventos w3c";
+        // }
+        // document.getElementById('w3c').addEventListener('click', alPulsar, false);
+
+        // //w3c como funcion anonima
+        // document.getElementById('w3c').addEventListener('mouseover', function () {
+        //     this.style.color = 'blue';
+        //     this.style.fontSize = '2em';
+        // }, false);
+
+        // document.getElementById('w3c').addEventListener('mouseout', function () {
+        //     this.style.color = ''; // Restablecer color
+        //     this.style.fontSize = ''; // Restablecer tamaño de fuente
+        // });
+
+        document.getElementById('w3c').addEventListener('click', saludarUnaVez, false);
+        document.getElementById('w3c').addEventListener('click', colorear, false);
+        document.getElementById('w3c').addEventListener('mouseover', fondo, false);
+
+        function saludarUnaVez() {
+            alert('Hola');
+        }
+
+        function colorear() {
+            this.style.color = 'red';
+        }
+
+        function fondo() {
+            this.style.backgroundColor = 'yellow';
+        }
+
+        document.getElementById('w3canonima').addEventListener('click', function(){this.style.color='red';}, false);
+        document.getElementById('w3canonima').addEventListener('click', function(){alert('hola')}, false);
+        document.getElementById('w3canonima').addEventListener('mouseover', function(){this.style.backgroundColor='yellow';}, false);
+
+        //al usar addevntlistener, se crea un objeto de tipo evento
+        //con e.type se puede saber el tipo de evento
+        //con e.target se puede saber el elemento que ha disparado el evento
+
+        document.getElementById('evento').addEventListener('mouseover', manejador);
+        document.getElementById('evento').addEventListener('mouseout', manejador);
+
+        document.getElementById('parrafo1').addEventListener('click', saludar);
+        document.getElementById('parrafo2').addEventListener('click', saludar);
+
+        function manejador(e) {
+            switch(e.type) {
+                case 'mouseover': 
+                    e.target.style.color = 'red'; //this.style.color = 'red';
+                    break;
+                case 'mouseout':
+                    e.target.style.color = 'blue';
+                    break;
+            }
+        }
+
+        function saludar(e) {
+            console.log(e.target);
+            alert(`has pulsado ${e.target.id}`);
+        }
+
+
+        //ppales eventos:
+        //onblur
+        //onchange
+        //onfocus
+        //onselect
+        //onsubmit
+        //onreset
+        //onkeydown
+        //onkeypress
+        //onkeyup
+        //etc etc etc etc
+    </script>
+</body>
+
+</html>
