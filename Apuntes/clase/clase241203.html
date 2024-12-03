@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //los metodos tradicionales de busqueda en el dom
+        //getElementbyid
+        //getElementsByClassName
+        //mas moderno:
+        //querySelector
+        //querySelectorAll
+
+
+        //desestructuracion de objetos
+        const user = {
+            name: 'pepe',
+            role: 'arquero',
+            life: 99
+        }
+        //const { name, role, life } = user;
+        // console.log(name, role, life);
+
+        const fullUser = {
+            power: 25,
+            life: 50,
+            ...user
+
+        }
+
+        console.log(fullUser);
+
+
+        //copias de objetos
+        //los valores primitimos se pasan por valor
+        //los objetos se pasan por referencia
+
+        const user2 = {
+            name: 'pepe',
+            role: 'arquero',
+            life: 99,
+            features: ["learn", "code", "paint"]
+        }
+        const fullUser2 = {
+            ...user2,
+            power: 25,
+            life: 50
+        }
+
+        // console.log(user2.features)
+        // console.log(fullUser2.features)
+
+        // fullUser2.features[0] = "program";
+
+        // console.log(user2.features)
+        // console.log(fullUser2.features)
+
+        //para evitar esto, se puede hacer una copia con ...structuredClon
+        const fullUser3 = {
+            ...structuredClone(user2),
+            power: 25,
+            life: 50,
+        }
+
+        console.log(user2.features)
+        console.log(fullUser3.features)
+
+        fullUser3.features[0] = "program";
+
+        console.log(user2.features)
+        console.log(fullUser3.features)
+
+        const {name, ...rest} = user;
+        console.log(name, rest);
+
+
+
+
+        //metodos de objetc
+        //Object.keys = [name, role, life]
+        //Object.values = [otto, arquero, 99]
+        //Object.entries = [[name, otto], [role, arquero], [life, 99]]
+
+        console.log(Object.keys(user));
+        console.log(Object.values(user));
+        console.log(Object.entries(user));
+
+        animales = ['perro', 'gato', 'loro'];
+        console.log(Object.keys(animales));
+        console.log(Object.values(animales));
+        console.log(Object.entries(animales));
+
+
+        const user99999 = {
+            name: 'pepe',
+            role: 'arquero',
+            life: 99,
+            talk: function() {
+                return('hola');
+            }
+        }
+
+        console.log(Object.keys(user99999));
+        console.log(Object.values(user99999));
+        console.log(Object.entries(user99999));
+
+
+        //convertir array en objeto: Object.fromEntries(array)  (de tipo Object)
+
+
+        const keys = ['name', 'role', 'talk'];
+        const values = ['pepe', 'arquero', function() {
+            return('hola');
+        }];
+
+        const userPepe = {};
+
+        const entries = [];
+
+        for (let i = 0; i < keys.length; i++) {
+            userPepe[keys[i]] = values[i];
+        }
+
+        for (let i of Object.keys(keys)) {
+            const key = keys[i];
+            const value = values[i];
+
+            entries.push([key, value]);
+        }
+
+        const userPepe2 = Object.fromEntries(entries);
+
+        console.log(userPepe);
+        console.log(userPepe2);
+
+
+    </script>
+</body>
+
+</html>
