@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //los Set: son array que no permitem objetos duplicados
+        //normalmente se recorre con for..of
+        const mySet = new Set([2,3,4,5,2,3,7,"2"]);
+        console.log(mySet);
+        for (let elem of mySet) {
+            console.log(elem);
+        }
+        //con ...spread se convierte en array
+        const myArray = [...mySet];
+        console.log(typeof mySet);
+        console.log(typeof myArray);
+        console.log(myArray);
+
+
+        //Ejercicio: dado 3 arrays, crear uno sin elementos duplicados
+
+        let miArray1 = [1,2,3,4,5,6,7,8];
+        let miArray2 = [1,2,3,8,9,0,43,45,65]
+        let miArray3 = [17,32,87,45]
+
+        let miArrayCompleto = new Set([...miArray1, ...miArray2, ...miArray3]);
+        let miArrayCompleto2 = new Set ([[...miArray1], [...miArray2], [...miArray3]])
+
+        console.log(miArrayCompleto);
+        console.log(miArrayCompleto2)
+        
+        //metodos y propiedades
+        //.size, .add, .has, .delete, .clear
+
+
+        //los Map: pares clave valor. Los key no se pueden repetir
+        const fruits = new Map([
+            ["apple", 100],
+            ["banana", 200],
+            ["orange", 300]
+        ])
+
+        //Mejor crearlos vacios y llenarlos con set
+
+        const fruits2 = new Map();
+        fruits2.set("apple", 100);
+        fruits2.set("banana", 200);
+        fruits2.set("orange", 300);
+
+        //metodos y propiedades
+        //.size, .set, .has, .get, .delete, .clear
+
+
+
+
+        //Programacion funcional
+        //Paradigma de programación que se cenmtra en que debe hacer en vez de como hacerlo. Se intentan
+        //evitar los for, while sobre arrays. Se usan funciones a la que se les pasan funciones como argumentos
+        //como por ej filter
+
+        const cuadrado = function (value) {
+            return value * value;
+        }
+
+        const aplica_funcion = function (dato, funcion_a_aplicar) {
+            return funcion_a_aplicar(dato);
+        }
+
+        aplica_funcion(3, cuadrado);
+
+        console.log(aplica_funcion(3, cuadrado));
+
+        //Metodo filter: devuelve un nuevo arrat conlos elementos que cumplan la condicion. Su parametro es una funcion
+        
+        let array8 = [1,2,3,4,5,6,7,8,9,10];
+        // let array9 = array8.filter(function (value) {
+        //     return value > 5; //si devuelve true, se añade al array
+        // })
+        
+
+        //con funcion flecha
+        let array9 = array8.filter(value => value > 5);
+        console.log(array9);
+
+
+        //metodo find: devuelve el primer elemento que cumpla la condicion
+        let array10 = array8.find(value => value > 5);
+        //Tiene mas sentido en objetos, por ej pa buscar la persona con el DNI xxxxxxxx
+        //let persona = personas.find(persona => persona.dni === "xxxxxxxx");
+
+        //metodo findindex: devuelve el indice del primer elemento que cumpla la condicion
+        //metodo every: devuelve true si todos los elementos cumplen la condicion
+        //metodo some: devuelve true si alguno de los elementos cumple la condicion
+        //metodo map: devuelve un nuevo array con los resultados de la funcion aplicada a cada uno de los elementos
+        //let arrayNotasSubidas = arrayNotas.map(nota => nota + 1);
+
+        //metodo reduce: devuelve un unico valor que es el resultado de la funcion aplicada a todos los elementos
+        //let sumaNotas = arrayNotas.reduce((acumulador, nota) => acumulador + nota, 0);
+
+        //Calcula la media artmetica de:
+
+        let miArray11 = [1,2,3,4,5,6,7,8];
+        let miArray22 = [1,2,3,8,9,0,43,45,65]
+        let miArray33 = [17,32,87,45]
+
+        //Tanto de los numeros repetidos como sin repetir
+
+        let setSinRepetir = new Set([...miArray11, ...miArray22, ...miArray33]);
+        let arraySinRepetir = [...setSinRepetir];
+
+        let media = arraySinRepetir.reduce((acumulador, valor) => acumulador + valor, 0) / arraySinRepetir.length;
+        
+        console.log(media);
+        
+
+        let arrayjunto = [...miArray11, ...miArray22, ...miArray33];
+        let media2 = arrayjunto.reduce((acumulador, valor) => acumulador + valor, 0) /arrayjunto.length;
+
+        console.log(media2);
+
+
+        //Dado un array de los dias de la semana, obtener los que comienzan por M
+
+        let dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+
+        let diasConM = dias.filter((palabra) => palabra[0] == "m");
+
+        console.log(diasConM);
+    </script>
+</body>
+</html>
