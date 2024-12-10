@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="resultado"></div>
+    <script>
+        /*
+        Enunciado del problema:
+        Se tiene una lista de usuarios con la siguiente estructura:
+        const usuarios = [
+        { id: 1, nombre: 'Juan', edad: 25 },
+        { id: 2, nombre: 'María', edad: 30 },
+        { id: 3, nombre: 'Pedro', edad: 20 },
+        { id: 4, nombre: 'Ana', edad: 35 },
+        ];
+
+        Se requiere:
+
+        Filtrar los usuarios mayores de 25 años.
+        Duplicar la edad de esos usuarios filtrados.
+        Obtener la suma total de las edades duplicadas.
+        */
+        const usuarios = [
+            { id: 1, nombre: 'Juan', edad: 25 },
+            { id: 2, nombre: 'María', edad: 30 },
+            { id: 3, nombre: 'Pedro', edad: 20 },
+            { id: 4, nombre: 'Ana', edad: 35 },
+        ];
+
+        let res = document.getElementById("resultado");
+        res.innerHTML = "";
+
+        res.innerHTML += "TODOS LOS USUARIOS: <br>"
+
+        for (let i = 0, long = usuarios.length; i < long; i++) {
+            res.innerHTML += usuarios[i].id + " " + usuarios[i].nombre + " " + usuarios[i].edad + "<br>"
+        }
+
+        res.innerHTML += "<br>Filtrar los usuarios mayores de 25 años: <br>"
+        let usuariosMayores25 = usuarios.filter(usuarios => usuarios.edad > 25)
+        console.log(usuariosMayores25)
+
+        for (let i = 0, long = usuariosMayores25.length; i < long; i++) {
+            res.innerHTML += usuariosMayores25[i].id + " " + usuariosMayores25[i].nombre + " " + usuariosMayores25[i].edad + "<br>"
+        }
+
+
+        res.innerHTML += "<br>Duplicar la edad de esos usuarios filtrados: <br>"
+        let usuariosMayores25por2 = usuariosMayores25.map(usuariosMayores25 => usuariosMayores25.edad * 2)
+        console.log(usuariosMayores25por2)
+
+        
+        res.innerHTML += usuariosMayores25por2 + "<br>"
+
+
+
+        res.innerHTML += "<br>Obtener la suma total de las edades duplicadas. <br>"
+        let usuariosMayores25por2Sumatorio = usuariosMayores25por2.reduce((acumulador, valor) => acumulador + valor)
+        console.log(usuariosMayores25por2Sumatorio)
+
+        
+        res.innerHTML += usuariosMayores25por2Sumatorio + "<br>"
+        
+
+
+
+    </script>
+</body>
+
+</html>

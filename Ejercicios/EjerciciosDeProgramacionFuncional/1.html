@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="resultado"></div>
+    
+    <script>
+        /*
+        Dada la lista de números:
+        const numeros = [1, 2, 3, 4, 5, 6, 3, 7, 7];
+        Usar map, filter y reduce para obtener los números *2, 
+        obtener los pares y la suma de todos.
+        */
+        let resultado = document.getElementById("resultado");
+        resultado.innerHTML = "";
+
+        const numeros = [1, 2, 3, 4, 5, 6, 3, 7, 7];
+        
+        let numMap = numeros.map(numero => numero * 2)
+        resultado.innerHTML += numMap + "<br>";
+
+        let pares = numeros.filter((num) => num % 2 != 1)
+        resultado.innerHTML += pares + "<br>";
+
+        let impares = numeros.filter((num) => num % 2 != 0)
+        let suma = impares.reduce((acumulador, valor) => acumulador + valor)
+        resultado.innerHTML += suma;
+    </script>
+</body>
+
+</html>

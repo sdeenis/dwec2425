@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="cuentaAtras"></p>
+    <p id="resultado"></p>
+    
+    <script>
+        let dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+        let diasConM = dias.filter((palabra) => palabra[0] == "m");
+        array = "Los dias de la semana que empiezan con M son: " + diasConM;
+
+        let segundos = prompt("Introduce la cuenta atras en segundos");
+
+        document.getElementById("cuentaAtras").innerHTML = "Quedan " + segundos + " segundos";
+        reloj = setInterval(cronometro,1000);
+
+        function cronometro() {
+            segundos--;
+            document.getElementById("cuentaAtras").innerHTML = "Quedan " + segundos + " segundos";
+            if (segundos == 0) {
+                clearInterval(reloj);
+                document.getElementById("cuentaAtras").innerHTML = "";
+                document.getElementById("resultado").innerHTML = array;
+            }
+        }
+    </script>
+</body>
+
+</html>
