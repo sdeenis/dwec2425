@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Formato JSON
+        //JSON = JavaScript Object Notation: formato ligero de datos. Se basa en la sintaxis de JavaScript
+        //de objetos.
+
+        //Su contenido puede sr un array, number, string, boolean, null, object. Lo normal es object o array
+
+        //En JSON Lint se puede validar el formato JSON
+
+        //Se diferencia con un objeto en que:
+        //las propiedades deben estar entrecomilladas. Los string tb
+        //No se pueden almacenar function, date, RegExp, undefined
+        //No se puede comentar
+        //Fix JSON: se puede arreglar un JSON mal formado
+
+        //Lo que mas vamos a hacer con JSON es pasarlo a objeto o al reves
+        //JSON.parse(str): convierte un string JSON a un objeto
+        //JSON.stringify(obj): convierte un objeto a un string JSON
+        //JSON.stringify(obj, props): convierte un objeto a un string JSON, pero solo con las propiedades que se le pasan
+        //JSON.stringify(obj, props, spaces): idem al anterior pero indenta a number spaces espacios
+
+        //COnvertir json a object: parsear. 
+
+        const json = `{
+            "name": "manuel",
+            "life": 49
+        }`;
+
+        const user = JSON.parse(json);
+
+        user.name; //manuel
+        user.life; //49
+
+        console.log(user);
+
+
+
+        const user2 = {
+            name: "Manuel",
+            life: 49,
+            talk: function() {
+                console.log("Hola");
+            }
+        }
+
+        const json2 = JSON.stringify(user2);
+
+        console.log(json2); //{"name":"Manuel","life":49}
+
+
+        const user3 = {
+            name: "Manz",
+            life: 99,
+            power: 10,
+        }
+
+        JSON.stringify(user3, ["life"]); //{"life":99}
+        JSON.stringify(user3, ["life", "power"]); //{"life":99,"power":10}
+        JSON.stringify(user3, []); //{}
+        JSON.stringify(user3, null); //{"name":"Manz","life":99,"power":10}
+
+
+
+        //Normalmente los JSON estan en un archivo externo, y se traen con fetch
+         
+
+      
+
+    </script>
+</body>
+
+</html>
