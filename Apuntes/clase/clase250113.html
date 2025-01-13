@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miClase {
+            color:green;
+        }
+    </style>
+    <script>
+        window.onload=inicio;
+        window.addEventListener("load",inicio); //e lo mismo q lo de arriba
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+            document.getElementById("cambiarClase").addEventListener("click",cambiarClase);
+            document.getElementById("quitaClase").addEventListener("click",quitaClase);
+            document.getElementById("añadirParrafo").addEventListener("click",añadirParrafo);
+        }
+        function cambiarTextos() {
+            texto1 = prompt("Introduce el texto del primer párrafo");
+            texto2 = prompt("Introduce el texto del segundo párrafo");
+            texto3 = prompt("Introduce el texto del tercer párrafo");
+            document.getElementById("parrafo1").innerHTML = texto1;
+            document.getElementsByTagName("p")[1].innerHTML = texto2;
+            document.getElementsByClassName("miClase")[0].innerHTML = texto3;
+        }
+        // var principal = document.getElementById("main");
+        // var parrafo1 = principal.innerHTML("parrafo1");
+        // document.querySelector(p.miClase)[0];
+
+        function cambiarClase() {
+            document.getElementById("parrafo1").setAttribute("class","miClase");
+            document.getElementById("parrafo2").className = "miClase";
+            // document.getElementById("parrafo3").className = "miClase";
+        }
+
+        function quitaClase() {
+            // document.getElementById("parrafo1").className = "";
+            // document.getElementById("parrafo2").setAttribute("class","");
+            // document.getElementById("parrafo3").removeAttribute("class");
+            let parrafos = document.querySelectorAll("p");
+            let parrafos2 = document.getElementsByTagName("p");
+            let longitud = parrafos2.length;
+            for (let j = 0; j < longitud; j++) {
+                parrafos2[j].className = "";
+            }
+        }
+
+        function añadirParrafo() {
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="main">
+        <p id="parrafo1">Hola1</p>
+        <p id="parrafo2">Hola2</p>
+        <p id="parrafo3" class="miClase">Hola3</p>
+    </div>
+    <br/>
+    <button id="cambiarTextos">Cambiar texto de párrafo</button>
+    <button id="cambiarClase">Cambiar clase de párrafo</button>
+    <button id="quitaClase">Quitar clase de párrafo</button>
+    <button id="añadirParrafo">Añadir párrafo</button>
+    <script>
+        //llamadas al dom:
+        //document.getElement
+        //document.head etc.
+
+        /*
+
+        acceso a nodo desde metodos del element:
+        getElementById
+        getElementsByTagName
+        getElementsByClassName
+
+        a partir de su selector CSS, mediante querySelector.
+
+        var myDiv = document.getElementById('miDiv');
+        alert(myDiv.innerHTML);
+
+        var x = document.getElementByClassName("name");
+
+        var myDiv = document.getElementById('miDiv');
+        var losP = myDiv.getElementsByTagName('p');
+        var num = losP.length;
+        alert(num);
+        alert("en el primer P el html asociado es " + losP[0].innerHTML);
+
+        var x = document.getElementsByName("nombre"); para forms sobre todo
+        
+        .querySelector(selector): Devuelve el primer nodo seleccionado por el selector CSS
+        let nodo = document.querySelector("p.error");
+
+        .querySelectorAll(selector): Devuelve todos los nodos seleccionados por el selector CSS
+        let nodos = document.querySelectorAll("p.error");
+
+        NOTA: al aplicarlo sobre document, se seleccionará sobre la página.
+
+        Modificar: .innerHTML, .innerText, .textContent
+        Añadir atributo: .setAttribute("atributo", "valor")
+        Modificar clases: .className
+
+        */
+    </script>
+</body>
+</html>
