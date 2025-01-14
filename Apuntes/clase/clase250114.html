@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creacion de elementos DOM</title>
+    <style>
+        .miClase {
+            color: red;
+        }
+    </style>
+    <script>
+        // window.onload = inicio();
+        window.addEventListener("load", inicio);
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("cambiarVacio").addEventListener("click", cambiarVacio);
+
+            function crearParrafo() {
+                let miParrafo = document.createElement("p");
+                let texto = document.createTextNode((document.getElementById("texto")).value);
+
+                miParrafo.appendChild(texto);
+                miParrafo.setAttribute("class", "miClase");
+
+                let cont = document.getElementById("div1");
+                cont.appendChild(miParrafo);
+            }
+
+            function crearImagen() {
+                let miImagen = document.createElement("img");
+                let ruta = prompt("introduce la url de la img");
+                miImagen.setAttribute("src", ruta);
+                let cont = document.getElementById("div1");
+                cont.appendChild(miImagen);
+            }
+
+            function borrarUltimo() {
+                let ultimoP = (document.getElementById("div1")).lastChild;
+                // let ultimoP = div1.lastChild; tb funciona
+                // let cont = document.getElementById("div1");
+                // cont.removeChild(ultimoP);
+                div1.removeChild(ultimoP);
+            }
+
+            function cambiarVacio() {
+                // let cont = document.getElementById("div1");
+                // let parrafoNuevo = document.createElement("p")
+                // let texto = document.createTextNode("vacio")
+                // parrafoNuevo.appendChild(texto)
+                // cont.replaceChild(parrafoNuevo, cont.firstChild);
+
+                var cont = document.getElementById("div1");
+                var antiguo = cont.firstChild;
+                var texto = document.createTextNode("vacio");
+                cont.replaceChild(texto, antiguo);
+            }
+        }
+
+
+
+        //crear, modificar o borrar elementos en un html
+        //.createElement (no se añade al documento)
+        //let nuevoLi = document.createElement("li");
+        //.createTextNode crear un nuevo elemento textual para incluirlo en elementos html no vacios
+        //.appendChild incluir un elemento dentro de otro o del documento
+        //.removeChild
+        //.replaceChild
+        //.setAttribute
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+    </div>
+
+    <br />
+    <textarea id="texto"></textarea>
+    <br />
+    <button id="crearParrafo">Crear Parrafo</button>
+    <button id="crearImagen">Crear Imagen</button>
+    <button id="borrarUltimo">Borrar Ultimo</button>
+    <button id="borrarPrimero">Borrar Primero</button>
+    <button id="cambiarVacio">Cambiar parrafo</button>
+
+
+</body>
+
+</html>
