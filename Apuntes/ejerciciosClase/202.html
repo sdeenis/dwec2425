@@ -59,7 +59,8 @@ Realizar una validación (débil, en el lado del cliente) utilizando indistintam
 
                 <div id="nombre">
                     Introduce tu nombre <input type="text" id="nombre"> <br>
-                    NIF: <input type="text" id="NIF"> <br><br></div>
+                    NIF: <input type="text" id="NIF" pattern="[0-9]{8}[A-Za-z]{1}" title="El formato ha de ser 00000000A" > <br><br></div> 
+                    <!-- Validacion con html5 -->
                 <div id="mensaje">
                     Mensaje <br><br>
                     <textarea name="mensaje" id="mensaje" cols="100" rows="10"></textarea>
