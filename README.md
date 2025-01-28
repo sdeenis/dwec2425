@@ -2,10 +2,12 @@
 
 Este es el repositorio público donde se almacenan las tareas y ejercicios realizados durante la asignatura **Desarrollo Web en Entorno Cliente (DWEC)**. 
 
+
 # Antes de nada...
 ## ¿Por qué este repositorio es público?
 
 El profesor necesita revisar alguna tarea de vez en cuando. Si no, probablemente este repositorio no sería público.
+
 
 ## Contenido
 
