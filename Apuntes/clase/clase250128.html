@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+    <form action="procesar.php" method="post" id="miFormulario">
+        <table>
+            <tr>
+                <td>Nombre*: </td>
+                <td>
+                    <input type="text" id="nombre" required pattern="[A-Za-z\s]{2,15}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Edad*: </td>
+                <td>
+                    <input type="number" id="edad" required min="1" max="100"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Teléfono*: </td>
+                <td>
+                    <input type="text" id="telefono" required pattern="[0-9]{9}" />
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Enviar" id="enviar" />
+            <input type="reset" value="Borrar" id="borrar" />
+        </p>
+        <p id="mensajeError" style="color: red;"></p>
+    </form>
+
+    <script>
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("enviar").addEventListener('click', validar);
+        }
+
+        function validarNombre() {
+            let elemento = document.getElementById("nombre");
+            if (!elemento.checkValidity()) {
+                // Validación para el nombre
+                if (elemento.validity.valueMissing) {
+                    error2(elemento, "Debe introducir un nombre"); // Mensaje personalizado para el nombre vacío
+                } else if (elemento.validity.patternMismatch) {
+                    error2(elemento, "Introduce entre 2 y 15 letras"); // Mensaje personalizado para el nombre con caracteres no válidos
+                }
+                return false;
+            }
+            return true;
+        }
+
+        function validarEdad() {
+            let elemento = document.getElementById("edad");
+            if (!elemento.checkValidity()) {
+                if (elemento.validity.valueMissing) {
+                    error2(elemento, "Debe introducir una edad"); // Mensaje personalizado para la edad vacía
+                } else if (elemento.validity.rangeUnderflow) {
+                    error2(elemento, "Introduce una edad mayor de 1 año"); // Mensaje personalizado para la edad con valores no válidos
+                } else if (elemento.validity.rangeOverflow) {
+                    error2(elemento, "Introduce una edad menor de 100 años"); // Mensaje personalizado para la edad con valores no válidos
+                }
+                return false;
+            }
+            return true;
+        }
+
+        function validarTelefono() {
+            let elemento = document.getElementById("telefono");
+            if (!elemento.checkValidity()) {
+                error2(elemento, "ha de tener 9 digitos"); // Mensaje genérico para otros errores de teléfono
+                return false;
+            }
+            return true;
+        }
+
+        function validar(e) {
+            
+            
+            borrarError(); // Limpiar los errores anteriores
+
+            if (
+                validarNombre() &&
+                validarEdad() &&
+                validarTelefono() &&
+                confirm("Pulsa aceptar si deseas enviar el formulario")
+            ) {
+                return true;
+                
+            }  else {
+                e.preventDefault();
+                return false;
+            }
+        }
+
+        // function error(elemento) {
+        //     // Establece el mensaje de error personalizado
+        //     document.getElementById("mensajeError").innerText = elemento.validationMessage;
+        //     elemento.classList.add("error");
+        //     elemento.focus();
+        // }
+
+        function borrarError() {
+            let inputs = document.querySelectorAll("#miFormulario input");
+            document.getElementById("mensajeError").innerText = ""; // Limpia el mensaje de error
+            inputs.forEach((input) => {
+                input.classList.remove("error");
+                // input.setCustomValidity(""); // Resetea los mensajes personalizados
+            });
+        }
+
+        function error2(elemento, mensaje) {
+            // Establece el mensaje de error personalizado para el campo "nombre"
+            document.getElementById("mensajeError").innerText = mensaje;
+            elemento.classList.add("error");
+            elemento.focus();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //sessionStorage: se pierde al cerrar el navegador
+        //localStorage: se mantiene aunque se cierre el navegador
+
+        //es mas seguro y almacena mas info q las cookies
+        //el web storage se comparte con dominio y protocolo
+
+        //los metodos son:
+        //setItem(key, value): almacena un par clave-valor
+        //getItem(key): obtiene el valor de una clave
+        //removeItem(key): elimina un par clave-valor
+        //clear(): elimina todos los pares clave-valor
+        
+        //if (typeof(Storage) !== "undefined") {}   -> comprueba si el navegador soporta
+        //hay plugins q pueden anular el uso de web storage
+
+        //son siempre cadenas:
+
+        //localStorage.setItem("nombre", "Juan"); -> sigue el estandar del API de web storage
+        //localStorage.nombre = "Juan"; -> peor forma de hacerlo
+        
+        //si queremos almacenar un objeto, se ha de usar JSON.stringify(objeto) con setItem
+
+        //const usuario = { nomnbre: "Juan", edad: 30 };
+        //localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        //pa recuperar:
+
+        //const usuarioRecuperado = JSON.parse(localStorage.getItem("usuario"));
+        //console.log(usuarioRecuperado.nombre); -> Juan
+
+        if (typeof(Storage) !== "undefined") {
+            alert("El navegador soporta web storage");
+            localStorage.setItem("nombre", "Juan");
+            localStorage.apellido = "Gómez";
+
+            console.log(localStorage.getItem("nombre"));
+            console.log(localStorage.apellido);
+
+            localStorage.removeItem("apellido");
+            alert(localStorage.getItem("nombre") + " " + localStorage.getItem("apellido"));
+        } else {
+            alert("El navegador no soporta web storage");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="parrafo">¡Bienvenido por primera vez!</p>
+    <p id="contador">0</p>
+
+    <button id="incrementar">Incrementar</button>
+    <button id="decrementar">Decrementar</button>
+    <button id="logout">Logout</button>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            if (localStorage.usuario != null) {
+                document.getElementById("parrafo").innerHTML = "¡Bienvenido de nuevo! " + localStorage.usuario;
+                document.getElementById("contador").innerHTML = localStorage.contador;
+            } else {
+                localStorage.setItem("usuario", prompt("Introduce tu nombre"));
+                document.getElementById("parrafo").innerHTML += " " + localStorage.usuario;
+                localStorage.setItem("contador", 0);
+            }
+        } else {
+            alert("El navegador no soporta web storage");
+        }
+
+        document.getElementById("incrementar").addEventListener('click', function () {
+            localStorage.contador++;
+            document.getElementById("contador").innerHTML = localStorage.contador;
+        });
+
+        document.getElementById("decrementar").addEventListener('click', function () {
+            localStorage.contador--;
+            document.getElementById("contador").innerHTML = localStorage.contador;
+        });
+
+        document.getElementById("logout").addEventListener('click', function () {
+            localStorage.clear();
+            // localStorage.setItem("usuario", prompt("Introduce tu nombre"));
+            // document.getElementById("parrafo").innerHTML = "¡Bienvenido por primera vez!, " + localStorage.usuario;
+            // localStorage.setItem("contador", 0);
+            // document.getElementById("contador").innerHTML = localStorage.contador;
+
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>
