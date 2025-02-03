@@ -24,50 +24,51 @@ En caso de error… para el catch: 🚨 Por favor, intenta hacer el pedido nueva
 
         function confirmarPedido() {
             return new Promise((resolve, reject) => {
+                console.log("Confirmando pedido... ⏳");
                 setTimeout(() => {
                     if (Math.random() < 0.8) {
-                        resolve("Confirmado");
+                        console.log("Pedido confirmado ✅");
+                        resolve();
                     } else {
-                        reject("Error al confirmar");
+                        console.log("Pedido no confirmado ❌");
+                        reject("🚨 Por favor, intenta hacer el pedido nuevamente");
                     }
                 }, 2000);
             });
         }
 
         function prepararComida() {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
+                console.log("Preparando comida... 🍔");
                 setTimeout(() => {
-                    resolve("Preparado");
+                    console.log("Comida preparada ✅");
+                    resolve();
                 }, 4000);
             });
         }
 
         function enviarPedido() {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
+                console.log("Enviando pedido... 🚴‍♂️");
                 setTimeout(() => {
-                    resolve("Entregado");
+                    console.log("Pedido entregado 🏠✅");
+                    resolve();
                 }, 6000);
             });
         }
 
-        confirmarPedido()
-            .then((res) => {
-                console.log("✅ " + res);
-                return prepararComida();
-            })
-            .then((res) => {
-                console.log("🍔 " + res);
-                return enviarPedido();
-            })
-            .then((res) => {
-                console.log("🏠 " + res);
-            })
-            .catch((err) => {
-                console.log("❌ " + err);
-                console.log("🚨 Por favor, intenta hacer el pedido nuevamente");
-            });
+        function realizarPedido() {
+            confirmarPedido()
+                .then(prepararComida)
+                .then(enviarPedido)
+                .catch(error => console.log(error));
+        }
 
-            
+        realizarPedido();
+
+
+
+
     </script>
 </body>
 

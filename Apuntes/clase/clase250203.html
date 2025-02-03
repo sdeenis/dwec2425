@@ -83,6 +83,25 @@
         }
 
         nuevoPais('Argentina', mostraPaises);
+
+
+        const aplicarDescuento = new Promise((resolve, reject) => {
+            const descuento = true;
+            if (descuento) {
+                resolve('Descuento aplicado');
+            } else {
+                reject('No se pudo aplicar el descuento');
+            }
+        })
+
+        .then(resultado => descuento(resultado))
+            .catch(error => console.log(error));
+
+        function descuento() {
+            console.log('Aplicando descuento...');
+        }
+
+        console.log(aplicarDescuento);
     </script>
 </body>
 
