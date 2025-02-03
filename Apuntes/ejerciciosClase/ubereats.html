@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+Imagina que trabajas en una aplicación de pedidos de comida a domicilio, similar a Uber Eats. Cuando un usuario realiza un pedido, el programa debe:
+
+Confirmar el pedido (simular un tiempo de espera). Mediante un Math.random del 80%  2 seg. Confirmando… Confirmado
+Preparar la comida (esperar un poco más). 4 sg preparando … preparado
+Enviar el pedido al repartidor (esperar nuevamente). 6 seg Enviando… Entregado
+Cada paso tarda un tiempo diferente y debe ejecutarse en orden. Usa promesas para simular este proceso y muestra mensajes en la consola indicando el estado del pedido.
+
+Utiliza  ✅ ❌ 🍔  🏠 🚴‍♂️
+
+En caso de error… para el catch: 🚨 Por favor, intenta hacer el pedido nuevamente
+        */
+
+        function confirmarPedido() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() < 0.8) {
+                        resolve("Confirmado");
+                    } else {
+                        reject("Error al confirmar");
+                    }
+                }, 2000);
+            });
+        }
+
+        function prepararComida() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Preparado");
+                }, 4000);
+            });
+        }
+
+        function enviarPedido() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Entregado");
+                }, 6000);
+            });
+        }
+
+        confirmarPedido()
+            .then((res) => {
+                console.log("✅ " + res);
+                return prepararComida();
+            })
+            .then((res) => {
+                console.log("🍔 " + res);
+                return enviarPedido();
+            })
+            .then((res) => {
+                console.log("🏠 " + res);
+            })
+            .catch((err) => {
+                console.log("❌ " + err);
+                console.log("🚨 Por favor, intenta hacer el pedido nuevamente");
+            });
+
+            
+    </script>
+</body>
+
+</html>

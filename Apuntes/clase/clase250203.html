@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //la programacion sincrona realiza tareas de forma secuencial
+        //js es un lenguaje no bloqueante. Mueve la tarea que está preoduciendo atraso a un segundo plano
+        //esto puede acabar ejecutandose o no
+        //ej: descarga de ficheros grandes, etc
+
+        //programacion asincrona vs multihilo
+
+        // ----  ----  ----
+
+        // ----
+        // ----
+        // ----
+
+        //js no es multihilo, pero puede simularlo con la programacion asincrona
+
+        //se basa en postergar acciones dependientes de otras que aun no se han realizado.
+        //No ejecuta varias acciones a la vez, sino que las va postergando
+
+        //en los 90 se usaba XMLHttpRequest para hacer peticiones asincronas
+        //AJAX -> Asynchronous JavaScript And XML
+        //Con el tiempo se ha ido simplificando hasta jQuery con metodos jQuery.ajax() y jQuery.get()
+
+        //resumen ajax
+        //asynchronous javascript and xml
+        //el objeto principal es XMLHttpRequest pa obtener datos del servvidor
+        //utiliza funciones callback mediante xhttp.onload
+        //ojo con CORS: Cross-Origin Resource Sharing. Los navegadores no permiten peticiones a otros dominios
+
+        //ajax funcionamiento
+        //un evento en la pag (click)
+        //js crea un objeto XMLHttpRequest q envia una peticion al servidor
+        //el servidor procesa la peticion y devuelve una respuesta
+        //js recibe la respuesta y la procesa
+
+        //utiliza funciones callback. Sustituido por API fetch
+
+        //propiedades xmlhttprequest
+        //onload
+        //onreadystatechange
+        //readyState
+        //responseText
+        //responseXML
+        //status
+
+
+        //algo que se espera que ocurra, pero no se tiene certeza. ES un objeto con 3 estados:
+        //pendiente, cumplida o rechazada (pending, fulfilled, rejected)
+
+        //las apis asincronas de los navegadores suelen devolver promesas
+        //cuando una funcion llama a una promesa esta pasa a pendiente y la funcion se ejecuta
+
+
+        //Hasta q no e llamae a .resolve o .reject no se resuelve la promesa y estara en pendiente
+
+        const paises = ['Francia', 'España', 'Portugal', 'Italia', 'Alemania'];
+
+        function mostraPaises() {
+            setTimeout(() => {
+                paises.forEach(pais => {
+                    console.log(pais);
+                }, 2000);
+            })
+        }
+
+        mostraPaises();
+
+        function nuevoPais(pais, callback) {
+            setTimeout(() => {
+                paises.push(pais);
+                callback();
+            }, 3000);
+        }
+
+        nuevoPais('Argentina', mostraPaises);
+    </script>
+</body>
+
+</html>
