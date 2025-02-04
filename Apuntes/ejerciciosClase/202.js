@@ -20,9 +20,9 @@ function validarMensaje() {
 }
 
 function validarTodos() {
-    let todosBtn = document.getElementById("todos");
+    // let todosBtn = document.getElementById("todos");
 
-    if (document.getElementById("lunes").checked && document.getElementById("martes").checked && document.getElementById("miercoles").checked && document.getElementById("jueves").checked && document.getElementById("viernes").checked) {
+    if (document.getElementById("todos").checked == false) {
         document.getElementById("lunes").checked = false;
         document.getElementById("martes").checked = false;
         document.getElementById("miercoles").checked = false;

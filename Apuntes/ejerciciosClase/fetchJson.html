@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenido">
+        <h1>JavaScript Moderno</h1>
+        <p>Api Fetch</p>
+        <div id="contenido"></div>
+        <button type="button" id="cargarTxt">Cargar Texto</button>
+        <button type="button" id="cargarJSON">Cargar JSON Objeto</button>
+        <button type="button" id="cargarJSONArray">Cargar JSON Array</button>
+        <button type="button" id="cargarApi">Cargar API</button>
+    </div>
+
+    <!-- <script src="fdisjfiodsjf.js"></script> -->
+    <script>
+        const cargarTxtBtn = document.querySelector('#cargarTxt');
+        cargarTxtBtn.addEventListener('click', cargarTxt);
+        const cargarJSONBtn = document.querySelector("#cargarJSON");
+        cargarJSONBtn.addEventListener("click", cargarJSON); 
+
+        function cargarTxt() {
+            fetch("data/datos.txt")
+                .then(response => {
+                    console.log(response);
+                    console.log(response.status)
+                    console.log(response.statusText)
+                    console.log(response.url)
+                    
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data)
+                    document.getElementById('contenido').innerHTML = data;
+                })
+        }
+
+        function cargarJSON () {
+            fetch("data/empleado.JSON")
+                .then(response => {
+                    console.log(response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('contenido').innerHTML = "id: " + data.id + "<br>nombre: " + data.nombre + "<br>empresa: " + data.empresa + "<br>puesto: " + data.puesto;
+                })
+        }
+
+        
+    </script>
+</body>
+</html>

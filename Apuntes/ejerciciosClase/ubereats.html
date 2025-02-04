@@ -26,13 +26,7 @@ En caso de error… para el catch: 🚨 Por favor, intenta hacer el pedido nueva
             return new Promise((resolve, reject) => {
                 console.log("Confirmando pedido... ⏳");
                 setTimeout(() => {
-                    if (Math.random() < 0.8) {
-                        console.log("Pedido confirmado ✅");
-                        resolve();
-                    } else {
-                        console.log("Pedido no confirmado ❌");
-                        reject("🚨 Por favor, intenta hacer el pedido nuevamente");
-                    }
+                    Math.random() < 0.8 ? (console.log("Pedido confirmado ✅"), resolve()) : (console.log("Pedido no confirmado ❌"), reject("🚨 Por favor, intenta hacer el pedido nuevamente"));
                 }, 2000);
             });
         }
