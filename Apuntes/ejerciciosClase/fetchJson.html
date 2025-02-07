@@ -22,6 +22,8 @@
         cargarTxtBtn.addEventListener('click', cargarTxt);
         const cargarJSONBtn = document.querySelector("#cargarJSON");
         cargarJSONBtn.addEventListener("click", cargarJSON); 
+        const cargarJSONArrayBtn = document.querySelector("#cargarJSONArray");
+        cargarJSONArrayBtn.addEventListener("click", cargarJSONArray);
 
         function cargarTxt() {
             fetch("data/datos.txt")
@@ -42,14 +44,49 @@
         function cargarJSON () {
             fetch("data/empleado.JSON")
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     return response.json();
                 })
                 .then(data => {
                     console.log(data);
-                    document.getElementById('contenido').innerHTML = "id: " + data.id + "<br>nombre: " + data.nombre + "<br>empresa: " + data.empresa + "<br>puesto: " + data.puesto;
+                    document.getElementById('contenido').innerHTML = "id: " + data.id + "<br>nombre: " + data.nombre + "<br>empresa: " + data.empresa + "<br>puesto: " + data.trabajo;
                 })
         }
+
+        function cargarJSONArray() {
+            fetch("data/empleados.JSON")
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    let html = "";
+                    data.forEach(empleado => {
+                        html += `<li><ul><li>id: ${empleado.id}<br> <li>nombre: ${empleado.nombre}<br> <li>empresa: ${empleado.empresa}<br> <li>puesto: ${empleado.trabajo}<br><br></ul></li>`;
+                    });
+                    document.getElementById('contenido').innerHTML = `<ul style="list-style:none">${html}</ul>`;
+                })
+        }
+
+        //profe: 
+        //function cargarJSONArray() {
+        //   fetch("data/empleados.JSON")
+        //       .then(response => {
+        //          mostrarHTML(response);
+        //      })
+        //}
+
+        //function mostrarHTML({empresa, id, nombre, trabajo}) {
+        //    const contenido = document.getElementById('contenido');
+        //    contenido.innerHTML = `
+        //        <ul>
+        //            <li>id: ${id}</li>
+        //            <li>nombre: ${nombre}</li>
+        //           <li>empresa: ${empresa}</li>
+        //            <li>puesto: ${trabajo}</li>
+        //        </ul>
+        //    `;
+        //}
 
         
     </script>

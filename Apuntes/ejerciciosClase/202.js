@@ -93,7 +93,7 @@ function validarNombre() {
 
 
 function validar(e) {
-    console.log("comienzo"); // Verifica que la función `validar` se ejecuta
+    console.log("comienzo"); 
 
     let mensajeValido = validarMensaje();
     console.log("Resultado de validarMensaje:", mensajeValido);
