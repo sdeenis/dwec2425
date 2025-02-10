@@ -7,13 +7,13 @@
 </head>
 <body>
     <script>
-        fetch("https://randomuser.me/api")
+        fetch("https://randomuser.me/api/?results=200")
             .then(response => {
                 console.log(response);
                 return response.json();
             })
             .then(data => {
-                console.log(data.gender);
+                console.log(data.results[0]);
             })
 
     </script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Async await: azucar sintactico
+        //para trabajar con promesas (codigo asincrono) de manera mas sencilla
+
+        //async: indica que una funcion es asincrona
+        //await: indica que una promesa se va a esperar. Solo se pue usar dentro de una 
+        //funcion asincrona
+
+        //normalmente se usa con try catch
+
+        //sintaxis basica
+
+        //const funcionAsync = async () => {
+        //    await promesa;
+        //}
+
+        //async function funcionAsync() {
+        //    await promesa;
+        //}
+
+        // console.log(1+1);
+        // hola();
+        // console.log(2+2);
+        //da error porque hola no esta definida
+
+        // console.log(1+1)
+        // try {
+        //     hola();
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        // console.log(2+2);
+        //no da error porque el error esta controlado
+
+        // async function miFuncion() {
+        //     let miPromesa = new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve("Promesa resuelta tras 2 segundos");
+        //         }, 2000);
+        //     })
+        //     console.log(1+1);
+        //     let resultado = await miPromesa; //Pausado
+        //     console.log(resultado);
+        //     console.log(2+2);
+        // }
+        // miFuncion();
+
+        // //tiene una sintaxis mas elegante q las promesas y .then
+
+        // const cargarDatos = async() => {
+        //     const url = "https://jsonplaceholder.typicode.com/todos/1";
+        //     const res = await fetch(url);
+        //     const data = await res.json();
+        //     console.log(data);
+        // };
+        // cargarDatos();
+        
+        function descargarClientes() {
+            return new Promise((resolve, reject) => {
+                const error = false;
+                setTimeout(() => {
+                    if (!error) {
+                        resolve("Lista de clientes descargada");
+                    } else {
+                        reject("Error en la conexion");
+                    }
+                }, 3000);
+            })
+        }
+
+        function descargarPedidos() {
+            return new Promise((resolve, reject) => {
+                const error = false;
+                setTimeout(() => {
+                    if (!error) {
+                        resolve("Lista de pedidos descargada");
+                    } else {
+                        reject("Error en la conexion");
+                    }
+                }, 5000);
+            })
+        }
+
+        //por declaracion
+        // async function ejecutar() {
+        //     try {
+        //         console.log(1+1)
+        //         const respuesta = await descargarClientes();
+
+        //         //descargarClientes()
+        //         //    .then(respuesta => console.log(respuesta))
+        //         console.log(2+2)
+        //         console.log(respuesta)
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+
+        
+
+        //por expresion
+        // const ejecutar = async () => {
+        //    try {
+        //         // console.log(1+1)
+        //         const respuesta = await descargarClientes();
+        //         const respuesta2 = await descargarPedidos();
+
+        //         //descargarClientes()
+        //         //    .then(respuesta => console.log(respuesta))
+        //         // console.log(2+2)
+        //         // console.log(respuesta)
+        //    } catch (error) {
+        //     console.log(error)
+        //    }
+        // }
+
+        const app = async() => {
+            try {
+                const clientes = await descargarClientes();
+                console.log(clientes);
+                const pedidos = await descargarPedidos();
+                console.log(pedidos);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        const app2 = () => {
+            Promise.all([descargarClientes(), descargarPedidos()])
+                .then(respuestas => {
+                    console.log(respuestas[0]);
+                    console.log(respuestas[1]);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+        const app3 = async() => {
+            try {
+                const respuesta = await Promise.all([descargarClientes(), descargarPedidos()]);
+                console.log(respuesta)
+                console.log(respuesta[0]);
+                console.log(respuesta[1]);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        app3();
+        
+
+        </script>
+</body>
+</html>
