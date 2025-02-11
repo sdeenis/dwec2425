@@ -1,40 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        const url = "https://pokeapi.co/api/v2/pokemon/pikachu";
+        // const url = "https://pokeapi.co/api/v2/pokemon?limit=10&weight=100";
 
-        // fetch(url)
-        //     .then(response => {
-        //         return response.json();
-        //     })
-        //     .then(data => {
+        // // fetch(url)
+        // //     .then(response => {
+        // //         return response.json();
+        // //     })
+        // //     .then(data => {
+        // //         console.log(data)
+        // //         console.log("nombre: " + data.name);
+        // //         console.log(`peso: ${data.weight}`);
+        // //         console.log("altura: " + data.height)
+        // //     })
+
+        // try {
+        //     const obtenerDatos = async () => {
+        //         const response = await fetch(url);
+        //         const data = await response.json();
         //         console.log(data)
         //         console.log("nombre: " + data.name);
         //         console.log(`peso: ${data.weight}`);
         //         console.log("altura: " + data.height)
-        //     })
+        //     }
+        //     obtenerDatos();
+        // } catch (error) {
+        //     console.log(error);	
+        // }
 
-        try {
-            const obtenerDatos = async () => {
-                const response = await fetch(url);
-                const data = await response.json();
-                console.log(data)
-                console.log("nombre: " + data.name);
-                console.log(`peso: ${data.weight}`);
-                console.log("altura: " + data.height)
-            }
-            obtenerDatos();
-        } catch (error) {
-            console.log(error);	
-        }
+        // pokemons = [];
+        // fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         // Crear un array de promesas para obtener más datos de cada Pokémon
+        //         const pokemonPromises = data.results.map(pokemon => {
+        //             return fetch(pokemon.url)
+        //                 .then(res => res.json())
+        //                 .then(pokemonData => {
+        //                     // Filtrar Pokémon con peso 3
+        //                     if (pokemonData.weight > 100) {
+        //                         return pokemonData; // Devuelve el nombre del Pokémon si cumple la condición
+        //                     } else {
+        //                         return 0;
+        //                     }
+        //                 });
+        //         });
+
+        //         // Esperar que todas las promesas se resuelvan
+        //         Promise.all(pokemonPromises)
+        //             .then(results => {
+        //                 console.log(results); // Muestra los datos de los Pokémon
+        //                 // Filtra los resultados que no sean undefined (Pokémon que no cumplen la condición)
+        //                 const filteredResults = results.filter(result => result !== undefined);
+        //                 console.log(filteredResults); // Muestra los nombres de los Pokémon que cumplen con el peso
+        //             });
+        //     })
+        //     .catch(error => console.log("Error fetching data: ", error));
+
+
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+            .then(response => response.json())
+            .then(data => {
+                const pokemonPromises = [];
+
+                // Usamos un bucle for para recorrer los Pokémon y obtener sus detalles
+                for (let i = 0; i < data.results.length; i++) {
+                    const pokemon = data.results[i];
+
+                    pokemonPromises.push(
+                        fetch(pokemon.url)
+                            .then(res => res.json())
+                            .then(pokemonData => {
+                                // Filtrar Pokémon con peso mayor a 100
+                                if (pokemonData.weight > 100) {
+                                    return pokemonData; // Devuelve el Pokémon completo si cumple la condición
+                                } else {
+                                    return null; // Retorna null si no cumple con la condición
+                                }
+                            })
+                    );
+                }
+
+                // Esperar que todas las promesas se resuelvan
+                Promise.all(pokemonPromises)
+                    .then(results => {
+                        console.log(results); // Muestra los datos de los Pokémon
+                        // Filtra los resultados que no sean null (Pokémon que no cumplen la condición)
+                        const filteredResults = results.filter(result => result !== null);
+                        console.log(filteredResults); // Muestra los Pokémon que cumplen con el peso
+                    });
+            })
+            .catch(error => console.log("Error fetching data: ", error));
+
+
+
 
 
     </script>
 </body>
+
 </html>

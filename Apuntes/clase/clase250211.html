@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onclick="alert('form')">FORM
+        <div onclick="alert('div')">DIV<p onclick="alert('p')">P</p>
+        </div>
+    </form>
+</body>
+
+<script>
+    //addeventlistener tiene 3 atributos. El tercero es opcional y tiene q ver con la "fase de burbujeo o propagacion"
+    //true capturing, false bubbling Por defecto es false
+
+    //con event.stopPropagation() se detiene la propagacion de eventos
+    //document.getElementById("form").addEventListener("click", funcion1)
+    //console.log("form")
+    //event.stopPropagation()
+
+    //fases de un evento:
+    //captura: va de arriba a abajo, solo acciona cuando se llega al objetivo a no ser que se ponga capture en true
+    //objetivo: es el objetivo del evento
+    //burbujeo: va de abajo a arriba
+
+    
+</script>
+
+</html>
