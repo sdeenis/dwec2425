@@ -1,0 +1,25 @@
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+function esPalindromo(str) {
+  // Eliminamos los caracteres no deseados y convertimos todo a minúsculas
+  var re = /[\W_]/g;
+  var lowRegStr = str.toLowerCase().replace(re, '');
+  // Comparamos la cadena original con su reverso
+  return lowRegStr === reverseString(lowRegStr);
+}
+
+// Pedir al usuario que ingrese una cadena de texto
+var userInput = prompt("Ingresa una cadena de texto:");
+
+// Mostrar la cadena invertida
+var reversedString = reverseString(userInput);
+console.log("La cadena invertida es: " + reversedString);
+
+// Verificar si es un palíndromo
+if (esPalindromo(userInput)) {
+  console.log("La cadena ingresada es un palíndromo.");
+} else {
+  console.log("La cadena ingresada no es un palíndromo.");
+}

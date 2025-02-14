@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies , WebStorage y SessionStorage</title>
+</head>
+<body>
+    
+<script>
+    /* COOKIES : archivo de datos que un sitio web almacena en el navegador del usuario. Las cookies se utilizan para guardar información 
+    que puede ser recuperada por el servidor o el propio cliente en visitas posteriores. */
+
+    // Crear Cookie ⏬
+    // Para crear una cookie se utiliza el "document.cookie"
+    document.cookie = "usuario = Rafael Alvarez;"
+    document.cookie = "sexo = hombre;";
+
+    //Aqui almacenamos las cookies en una variable para mostrarlo mediante un alert(Solo se ha podido visualizar mediante el navegador "FireFox" )
+    var miCookie = document.cookie;
+    alert(miCookie);
+
+    // Eliminar Cookies ⏬
+    // Para eliminar Cookies no es necesario especificar un valor a la cookie y usaremos la expresion "expires" con una fecha pasada
+    document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "sexo=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+    //Verificacion de que las cookies se han eliminado
+    alert(document.cookie);
+
+
+    /* Web Storage : permite almacenar datos de manera más eficiente que las cookies. Los dos mecanismos principales son localStorage y sessionStorage */
+
+    //ESTE EJEMPLO SE HA SACADO DE UN EJERCICIO HECHO EN CLASE
+
+    // Verificar soporte de Web Storage
+    if (typeof(Storage) !== "undefined") {
+        alert("El navegador sí soporta Web Storage");
+
+        // Saludo al usuario
+        if (localStorage.getItem("usuario") !== null) {
+            document.getElementById("saludo").innerHTML = "Bienvenido de nuevo, " + localStorage.getItem("usuario") + "!";
+        } else {
+            localStorage.setItem("usuario", prompt("¿Cuál es tu nombre?"));
+            document.getElementById("saludo").innerHTML = "Tu primera visita, " + localStorage.getItem("usuario") + "!";
+        }
+
+        // Inicializar el contador en sessionStorage si no existe
+        if (!sessionStorage.getItem("contador")) {
+            sessionStorage.setItem("contador", "0");
+        }
+        document.getElementById("contador").innerHTML = "Contador: " + sessionStorage.getItem("contador");
+
+        // Agregar event listeners a los botones
+        document.getElementById("incrementar").addEventListener("click", incrementar);
+        document.getElementById("decrementar").addEventListener("click", decrementar);
+        document.getElementById("logout").addEventListener("click", logout);
+    } else {
+        alert("El navegador no soporta Web Storage");
+    }
+
+    // Función para incrementar el contador
+    function incrementar() {
+        let contador = Number(sessionStorage.getItem("contador"));
+        contador++;
+        sessionStorage.setItem("contador", contador.toString());
+        document.getElementById("contador").innerHTML = "Contador: " + contador;
+    }
+
+    // Función para decrementar el contador
+    function decrementar() {
+        let contador = Number(sessionStorage.getItem("contador"));
+        if (contador > 0) {
+            contador--;
+        }
+        sessionStorage.setItem("contador", contador.toString());
+        document.getElementById("contador").innerHTML = "Contador: " + contador;
+    }
+
+    // Función para hacer logout y limpiar el almacenamiento
+    function logout() {
+        localStorage.removeItem("usuario");
+        sessionStorage.removeItem("contador");
+        document.getElementById("saludo").innerHTML = "";
+        document.getElementById("contador").innerHTML = "";
+        alert("Se ha cerrado la sesión y los datos se han eliminado.");
+    }
+
+</script>
+
+</body>
+</html>

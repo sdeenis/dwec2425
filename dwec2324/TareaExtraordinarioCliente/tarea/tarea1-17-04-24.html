@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      // 1 - Alcance de variables
+
+      //Ejemplo A
+      function saludar() {
+        let saludo = "hola";
+        console.log(saludo);
+      }
+    
+      //console.log(saludo)
+      //Si se deja de comentar la linea de "console.log(saludo)" dará un error porque 'saludo' es una variable local de la función
+      saludar();
+
+      //Ejemplo B
+
+      variableGlobal = "Soy variable globaal";
+      function variable() {
+        console.log(variableGlobal);
+      }
+      variable(); // muestra la variable global que esta fuera de la funcion
+
+      //Ejemplo C
+
+      var variable = "Variable fuera";
+      function ambito() {
+        var variable = "Variable dentro";
+        console.log(variable);
+      }
+      ambito(); //muestra la variable local dentro de la funcion
+      console.log(variable); // Muestra la variable global fuera de la función
+
+      
+      // 2 - Funciones (declaración o expresión. Constructor)
+
+      /*Funcion A (DECLARACION) */
+
+      function declaración() {
+        console.log("Esto es una funcion declarada");
+      }
+      declaración();
+
+      /*Funcion B (EXPRESION)*/
+      let flecha = () =>
+        console.log("Esto es una funcion flecha o de expresion"); //La funcion de expresion se declara con una variable
+      flecha();
+
+      /*Funcion C (CONSTRUCTOR)*/
+      var sum = new Function("a", "b", "return a + b");
+      console.log("Funcion constructor : " + sum(1, 2));
+
+      //Funciones callback
+
+      /*Una función de callback es una función que se pasa a 
+      otra función como un argumento, que luego se invoca dentro de la función externa para 
+      completar algún tipo de rutina o acción.*/
+
+      function saludar(nombre) {
+        alert("Hola " + nombre);
+      }
+      function procesarEntradaUsuario(callback) {
+        var nombre = prompt("Por favor ingresa tu nombre.");
+        callback(nombre);
+      }
+      procesarEntradaUsuario(saludar);
+
+      /*funcion con Parametros*/
+
+      function parametros(x, y) {
+        if (y === undefined) {
+          y = 2;
+        }
+        return x * y;
+      }
+      console.log("Funcion con parametros : " + parametros(4)); // No es necesario 2 argumentos debido a que en la funcion se declara uno de ellos
+
+      // Argumentos por exceso (arguments()) y por defecto (NaN)
+      // Si se da mas se almacena en un array arguments[] y Si se proporciona menos argumentos el resultado es NaN
+
+      function suma(a, b) {
+        return a + b;
+      }
+      console.log(suma(2, 2));
+      console.log(suma(2)); // El resultado sera NaN debido a que falta argumentos
+
+    </script>
+  </body>
+</html>

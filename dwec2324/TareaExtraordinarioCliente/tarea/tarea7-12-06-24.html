@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>SALIDA</h2>
+    <div id="mensajes"></div>
+    
+    <script>
+     //Asincronia 
+     /*Ejercicio de ciclistas : consiste en crear una cuenta atras para cada ciclista y cuando acabe la cuenta atras de todos 
+     los ciclistas que salte un mensaje de "Todos los ciclistas han salido de la meta" */
+    
+      /*Creacion de variables */
+      const mensajes = document.getElementById("mensajes");
+      const INTERVALO = 5000;
+      const CRONOMETRO = 3;
+      const NUMERO_CICLISTAS = 5;
+
+      /*Promesa en JS : son un patrón y una característica de manejo asíncrono que se introdujo para facilitar la gestión de operaciones asíncronas 
+      en el lenguaje. En resumen sirven para realizar una accion en un tiempo determinado 
+      Aqui creamos una funcion esperar que contiene una promesa donde el tiempo sera el parametro que pongamos*/
+      function esperar(tiempo) {
+        return new Promise((resolve) => setTimeout(resolve, tiempo));
+      }
+
+      /*ASYNC y AWAIT : Esto son dos terminos que se utilizan para trabajar con promesas .
+        Cuando se utiliza ASYNC delante de una funcion significa solamente una cosa: que la función siempre devolverá una promesa y el await hace que 
+        JavaScript espere hasta que la promesa responda y devuelve su resultado..*/
+
+        /*FUNCION PARA CUANDO SE ACABE TODOS LOS CICLISTAS*/
+      window.addEventListener("load", async () => {
+        for (let i = 1; i <= NUMERO_CICLISTAS; i++) await salirCiclista(i);
+        mensajes.textContent = "Todos los ciclistas han salido de la meta";
+      });
+
+      /*FUNCION PARA MOSTRAR CADA CICLISTA*/
+      function salirCiclista(ciclista) {
+        mensajes.textContent = `Dorsal ${ciclista} ${CRONOMETRO}`;
+        cronometroCiclista(ciclista);
+        return esperar(INTERVALO);
+      }
+
+      /*FUNCION PARA MOSTRAR CONTADOR DEL CICLISTA*/
+      async function cronometroCiclista(ciclista) {
+        for (let i = CRONOMETRO; i >= 0; i--) {
+          mensajes.textContent = `Dorsal ${ciclista} ${i}`;
+          await esperar(1000);
+        }
+        mensajes.textContent = `Dorsal ${ciclista} ¡YA!`; 
+      }
+    </script>
+</body>
+</html>

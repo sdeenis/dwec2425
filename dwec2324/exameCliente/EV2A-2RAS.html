@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>RAS
+    <script>
+        function Animal(nombre, edad, patas, especie ,estado){//clase Animal
+            this.nombre = nombre;
+            this.edad = edad;
+            this.patas = patas;
+            this.especie = especie;
+            this.estado = estado;
+            this.introduce=function(){
+                return "Hola ,mi nombre es " + this.nombre + " y tengo " + this.edad + " años";
+            }
+        }
+
+        function Tiburon(nombre,edad,estado){//clase tiburon
+            this.nombre = nombre;
+            this.edad = edad;
+            this.estado = estado;
+            this.introduce=function(){
+                return "Hola ,mi nombre es " + this.nombre + " y tengo " + this.edad + " años";
+            }
+        }
+
+        function Gato(nombre,edad,estado){//clase Gato
+            this.nombre = nombre;
+            this.edad = edad;
+            this.estado = estado;
+            this.introduce=function(){
+                return "Hola ,mi nombre es " + this.nombre + " y tengo " + this.edad + " años y estoy : " + this.estado;
+            }
+        }
+
+        function Perro(nombre,edad,estado,dueño){//clase Perro
+            this.nombre = nombre;
+            this.edad = edad;
+            this.estado = estado;
+            this.dueño = dueño;
+            this.introduce=function(){
+                return "Hola ,mi nombre es " + this.nombre + " y tengo " + this.edad + " años";
+            }
+            this.saludaDueño = function(){
+                return "Hola " + dueño
+            }
+            
+        }
+
+        let tiburon = new Tiburon("chum" , 5 ,"hambriento")
+        let gato = new Gato("Silvestre" , 3 , "jugueton")
+        let perro = new Perro("Cane" , 2 , "feliz" ,"Pepe") 
+
+        console.log(tiburon.introduce())
+        console.log(gato.introduce())
+        console.log(perro.introduce())
+        console.log(perro.saludaDueño())
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Pedir al usuario que ingrese una cadena de texto
+      var cadena = prompt("Ingresa una cadena de texto:");
+
+      function cadenaInvertida(str) {
+        return str.split("").reverse().join("");
+      }
+
+      function esPalindromo(str) {
+       //no funciona
+      }
+
+      // Mostrar la cadena invertida
+      var cadenaInvertida = cadenaInvertida(cadena);
+      alert("La cadena invertida es: " + cadenaInvertida);
+
+      // Verificar si es un palíndromo
+      if (esPalindromo(cadena)) {
+        alert("La cadena ingresada es un palíndromo.");
+      } else {
+        alert("La cadena ingresada no es un palíndromo.");
+      }
+    </script>
+  </body>
+</html>

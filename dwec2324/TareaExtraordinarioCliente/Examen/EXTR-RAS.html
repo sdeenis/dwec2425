@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Rafael alvarez salazar-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+      <style type="text/css">
+      .oculto {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Construye un test para comprobar si el usuario padece nomofobia .Realiza una página web en la que deben aparecer estas 
+    diez preguntas(secuencialmente una debajo de otra, de una en una)en una lista ordenada de checkbox de si y no: -->
+
+    <h1>Test de Nomofobia</h1>
+
+    <div id="preg1">
+      <p>
+        1.¿Cuándo mandas un mensaje por WhatsApp esperas siempre al doble check.
+        Si no aparece vuelves a abrir el terminal para revisarlo al rato?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente1">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg2" class="oculto">
+      <p>
+        2.¿Antes de acostarte siempre miras el móvil a ver si tienes mensajes o
+        notificaciones?
+      </p>
+      <input type="checkbox"/>SI <input type="checkbox"/>NO
+      <button id="siguiente2">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg3"class="oculto">
+      <p>
+        3.¿Te despiertas antes de tiempo para jugar, mandar mensajes, actualizar
+        perfiles... con el teléfono móvil?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente3">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg4"class="oculto">
+      <p>
+        4.Si sales de casa sin el móvil ¿volverías a por él aunque llegues tarde
+        a tu cita?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente4">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg5"class="oculto">
+      <p>5.¿Tienes miedo a quedarte sin batería?</p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente5">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg6"class="oculto">
+      <p>
+        6.Cuando tienes la batería baja ¿desactivas ciertas aplicaciones u
+        opciones del teléfono como la Wifi, bluetooth para no quedarte sin
+        batería?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente6">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg7"class="oculto">
+      <p>
+        7.¿Tienes ansiedad cuando tienes llamadas perdidas? ¿Llamas a los
+        números y te preocupas si no responden?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente7">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg8"class="oculto">
+      <p>
+        8. ¿Miras la cobertura cuando estás en algún sitio con los amigos,
+        esperando, etc.?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente8">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg9"class="oculto">
+      <p>
+        9.¿Sueles hacer alguna otra cosa mientras que miras al móvil como comer,
+        lavarte los dientes, etc.?
+      </p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="siguiente9">Siguiente pregunta</button>
+    </div>
+
+    <div id="preg10"class="oculto">
+      <p>10.¿Vas al baño siempre con el móvil?</p>
+      <input type="checkbox" />SI <input type="checkbox" />NO
+      <button id="resultados">Ver resultados</button>
+    </div>
+
+    <script>
+      document.getElementById("siguiente1").addEventListener("click",pregunta2);
+      document.getElementById("siguiente2").addEventListener("click",pregunta3);
+      document.getElementById("siguiente3").addEventListener("click",pregunta4);
+      document.getElementById("siguiente4").addEventListener("click",pregunta5);
+      document.getElementById("siguiente5").addEventListener("click",pregunta6);
+      document.getElementById("siguiente6").addEventListener("click",pregunta7);
+      document.getElementById("siguiente7").addEventListener("click",pregunta8);
+      document.getElementById("siguiente8").addEventListener("click",pregunta9);
+      document.getElementById("siguiente9").addEventListener("click",pregunta10);
+      document.getElementById("resultados").addEventListener("click",calcularResultados);
+     
+
+      function pregunta2(){
+        const  div = document.getElementById("preg2")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta3(){
+        const  div = document.getElementById("preg3")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta4(){
+        const  div = document.getElementById("preg4")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta5(){
+        const  div = document.getElementById("preg5")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta6(){
+        const  div = document.getElementById("preg6")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta7(){
+        const  div = document.getElementById("preg7")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta8(){
+        const  div = document.getElementById("preg8")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta9(){
+        const  div = document.getElementById("preg9")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+      function pregunta10(){
+        const  div = document.getElementById("preg10")
+        if(div.classList.contains("oculto")){
+            div.classList.remove("oculto")
+        }
+      }
+
+      
+    function calcularResultados() {
+            const form = document.getElementById('testForm');
+            let contador = 0;
+            
+
+            let resultText = '';
+            let adviceText = '';
+
+            if (score <= 4) {
+                resultText = 'En principio no tienes nada de qué preocuparte.';
+                adviceText = 'Sigue así.';
+            } else if (score === 5) {
+                resultText = 'Empiezas a tener signos de dependencia del móvil.';
+                adviceText = 'Puedes utilizar técnicas como apagar el móvil cuando no lo necesitas, cuando duermes, etc.';
+            } else if (score === 6 || score === 7) {
+                resultText = 'Tienes una gran dependencia del móvil.';
+                adviceText = 'Deberías seguir un plan de desintoxicación del móvil como por ejemplo dejar el móvil en casa cuando vas a comprar, apagarlo durante la noche, apagarlo durante horas de clase o trabajo, etc.';
+            } else {
+                resultText = 'Tus síntomas de dependencia son muy preocupantes.';
+                adviceText = 'Además de todas las técnicas de los apartados anteriores deberías plantearte un plan de desintoxicación del móvil que consista en estar una o dos semanas sin utilizarlo. Si ves que no puedes hacerlo por ti mismo, pide ayuda a un profesional.';
+            }
+        }
+    </script>
+  </body>
+</html>
