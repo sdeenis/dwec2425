@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m</title>
+</head>
+
+<body>
+    <!-- Un sistema de defensa debe lanzar 15 misiles etiquetados del 1 al 15, separados entre ellos por 5 segundos. Crea una función en JavaScript al efecto y simula su funcionamiento con una cuenta atrás que empiece 3 segundos antes de salir y que vaya añadiendo sucesivamente en la pantalla, una línea con el texto :
+ ” Misil n 3,2,1 … ¡lanzado! “ (la cuenta atrás desaparece) -->
+
+    <div id="contenedor"></div>
+
+
+    <script>
+        
+
+        // function lanzarMisil(i) {
+        //     let contenedor = document.getElementById("contenedor");
+        //     let linea = document.createElement("p");
+        //     contenedor.appendChild(linea);
+
+        //     let cuentaAtras = 3;
+
+        //     let intervalo = setInterval(() => {
+        //         if (cuentaAtras > 0) {
+        //             linea.textContent = `Misil nº ${i + 1} ${cuentaAtras} ...`;
+        //             cuentaAtras--;
+        //         } else {
+        //             clearInterval(intervalo);
+        //             linea.textContent = `Misil nº ${i + 1} ¡lanzado!`;
+        //         }
+        //     }, 1000);
+            
+        // }
+        
+        // for (let i = 0; i < 15; i++) {
+        //     setTimeout(() => lanzarMisil(i), 5000 * i);
+        // }
+
+        
+    // Función que espera un tiempo determinado (usamos Promise para que sea compatible con async/await)
+    function esperar(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // Función asíncrona para lanzar un misil con cuenta atrás
+    async function lanzarMisil(i) {
+        let contenedor = document.getElementById("contenedor");
+        let linea = document.createElement("p");
+        contenedor.appendChild(linea);
+
+        // Cuenta atrás de 3 segundos antes del lanzamiento
+        for (let cuentaAtras = 3; cuentaAtras > 0; cuentaAtras--) {
+            linea.textContent = `Misil nº ${i} ${cuentaAtras} ...`;
+            await esperar(1000); // Espera 1 segundo
+        }
+
+        // Mostrar mensaje de lanzamiento
+        linea.textContent = `Misil nº ${i} ¡lanzado!`;
+    }
+
+    // Función asíncrona para coordinar los lanzamientos
+    async function lanzarTodosLosMisiles() {
+        for (let i = 1; i <= 15; i++) {
+            lanzarMisil(i); // Lanza el misil (no esperamos que termine para no bloquear)
+            await esperar(5000); // Espera 5 segundos antes de iniciar el siguiente
+        }
+    }
+
+    // Iniciar el proceso
+    lanzarTodosLosMisiles();
+
+
+
+    </script>
+</body>
+
+</html>
