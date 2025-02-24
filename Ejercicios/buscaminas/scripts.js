@@ -29,8 +29,32 @@ function pulsarBoton(e) {
         if (cont > 0) {
             e.target.innerHTML = cont
         } else {
-            e.target.className = ""
+            e.target.innerHTML = cont
+            abrirTablero(e.target.className)
         }
+    }
+}
+
+function abrirTablero(pos) {
+    let fil = Number(pos[0])
+    let col = Number(pos[1])
+    console.log(fil, col)
+
+    let cont = 0;
+
+    for (let i = fil - 1; i < fil + 2; i++) {
+        for (let j = col - 1; j < col + 2; j++) {
+            let coor = "" + i + j
+            console.log(coor)
+            if (stringBombas.includes(coor)) {
+                cont++
+            }
+        }
+    }
+
+    if (cont == 0) {
+        document.getElementsByClassName(pos)[0].innerHTML = cont
+        abrirTablero(coor)
     }
 }
 
@@ -50,6 +74,8 @@ function detectarBombas(pos) {
             }
         }
     }
+
+    
 
     console.log(cont)
     return cont;
