@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="contador">60</p>
+    <div id="contenido"></div>
+    <script>
+        let segundos = 59;
+
+        // for (let i = 0; i < segundos; i++) {
+        //     if (i % 5 == 0) {
+        //         await lanzarPedido(i);
+        //     }
+        // }
+
+        window.onload = iniciar;
+
+        function iniciar() {
+            let contador = document.getElementById("contador")
+            cuentaAtras = 60;
+            let intervalo = setInterval (() => {
+                if (cuentaAtras > 0) {
+                    contador.innerHTML = `Quedan ${cuentaAtras} segundos`
+                    cuentaAtras--;
+                } else if (cuentaAtras == 0) {
+                    clearInterval(intervalo)
+                    contador.innerHTML = "final"
+                }
+            }, 1000)
+        }
+
+        function esperar(tiempo) {
+            return new Promise(resolve => setTimeout(resolve, tiempo))
+        }
+
+        async function lanzarPedidos() {
+            for (let i = 0; i < 12; i++) {
+                lanzarPedido(i)
+                await esperar(5000)
+            }
+        }
+
+        async function lanzarPedido(i) {
+            let contenedor = document.getElementById("contenido")
+            let parrafo = document.createElement("p")
+            parrafo.innerHTML = `pedido ${i + 1} lanzado`;
+
+            contenedor.appendChild(parrafo);
+        }
+
+        lanzarPedidos();
+    </script>
+</body>
+
+</html>

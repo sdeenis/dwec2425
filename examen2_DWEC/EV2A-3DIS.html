@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de la compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #div1 {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        textarea {
+            width: 90%;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #añadir {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #añadir:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <h3>Lista de la compra EV2</h3>
+        <ul id="lista"></ul>
+        <br>
+        <textarea id="texto" placeholder="Añadir nuevo producto a la lista"></textarea><br>
+        <button id="añadir">Añadir</button>
+    </div>
+
+    <script>
+        window.onload = iniciar;
+
+        //funcion de inicio para darle acciones al click del boton
+        function iniciar() {
+            document.getElementById("añadir").addEventListener('click', añadirItem)
+
+        }
+
+        //funcion para añadir items a la lista
+        function añadirItem() {
+            let lista = document.getElementById("lista") //cogemos la lista entera
+            let item = document.getElementById("texto").value //cogemos el valor del textarea
+
+            //creamos el li y le ponemos dentro el contenido correspondiente
+            let elementoLista = document.createElement("li") 
+            elementoLista.innerHTML = item
+
+            //creamos el boton, le damos la clase, el contenido y la accion, y lo añadimos a la lista
+            let nuevoBoton = document.createElement("button")
+            nuevoBoton.className = "delete-btn"
+            nuevoBoton.innerHTML = "❌"
+            nuevoBoton.onclick = quitarElemento;
+
+
+            lista.append(elementoLista)
+            elementoLista.append(nuevoBoton)
+            document.getElementById("texto").focus()
+        }
+
+        //funcion para eliminar items. Recibe por parametro el evento como tal.
+        function quitarElemento(e) {
+            // seleccionamos el elemento padre
+            let elementoLista = e.target.parentElement;
+
+            //eliminamos el elemento
+            let lista = document.getElementById("lista")
+            lista.removeChild(elementoLista)
+        }
+
+
+
+
+
+        //funcion ordenar Lista. No funciona
+        //---------------------------------------------------------------------
+
+        // function ordenarLista() {
+        //     let lista = document.getElementById("lista")
+
+        //     let elementos = []
+        //     elementos = lista.childNodes
+
+        //     console.log(elementos[0])
+
+        // }
+            
+        //     for (let i = 0; i < elementos.length; i++) {
+        //         let aux = elementos[i].innerHTML
+        //         lista.removeChild(elementos[i])
+        //         let nuevaLista = document.createElement("li")
+        //         nuevaLista.innerHTML = aux
+        //         lista.append(nuevaLista)
+        //     }
+
+        //     // console.log(elementosContenido)
+
+        //     // elementosContenido.sort();
+
+        //     // console.log(elementosContenido)
+
+        //     // for (let i = 0; i < elementosContenido.length; i++) {
+        //     //     let nuevaLista = document.createElement("li")
+        //     //     nuevaLista.innerHTML = elementosContenido[i]
+        //     //     lista.append(nuevaLista)
+        //     // }
+
+
+
+        //     // for (let i = 0; i < cantidad - 1; i++) {
+        //     //     if (elementos[i+1] < elementos[i]) {
+        //     //         let aux = elementos[i+1]
+        //     //     }
+        //     // }
+        // }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="1"><p id="2"><b id="3">Hola</b></p></div>
+
+    <div id="4"></div>
+    <div id="5"></div>
+    <script>
+        console.log(document.getElementById("1").innerHTML)
+        console.log(document.getElementById("1").textContent)
+        console.log(document.getElementById("1").value)
+
+        document.getElementById("4").innerHTML = "<b>negrita</b>"
+        document.getElementById("5").textContent = "<b>negrita</b>"
+
+
+    </script>
+</body>
+</html>

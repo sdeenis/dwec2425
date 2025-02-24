@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salida de Ciclistas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin-top: 50px;
+        }
+
+        #pantalla {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        #dorsal {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #cuentaAtras {
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="pantalla">
+        <h3>Salida de Ciclistas 🚴‍♂️</h3>
+        <div id="dorsal">Dorsal: </div>
+        <div id="cuentaAtras">Cuenta atrás: </div>
+    </div>
+
+    <script>
+
+        //funcion salidaCiclistas: controla el flujo del programa, llamando 
+        //a la funcion cuentaAtras cada 10 segundos, un total de 10 veces
+        async function salidaCiclistas() {
+            for (let i = 0; i < 10; i++) {
+                cuentaAtras(i)
+                await new Promise(resolve => setTimeout(resolve, 10000)); //esperamos 10 seg
+            }
+        }
+
+        //funcion cuentaAtras: recibe por parametro el contador del bucle anterior, para saber
+        //el nº de ciclista que va a salir. Tiene un contador interno de 5 seg, que al llegar a 0
+        //se quita para poner "¡Salida!".
+        //Los 10 segundos del bucle de la funcion salidaCiclistas se cuentan a la vez que estos 5 segundos
+        async function cuentaAtras(i) {
+            let dorsal = document.getElementById("dorsal")
+            dorsal.innerHTML = `Dorsal: ${i+1}`
+
+            let cuenta = document.getElementById("cuentaAtras")
+
+            for (let cuentaAtras = 5; cuentaAtras > 0; cuentaAtras--) {
+                cuenta.innerHTML = `Cuenta atrás: ${cuentaAtras}`
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            cuenta.innerHTML = `¡Salida!`;
+        }
+
+        //llamada a la funcion que controla todo el programa.
+        salidaCiclistas();
+    </script>
+
+</body>
+
+</html>

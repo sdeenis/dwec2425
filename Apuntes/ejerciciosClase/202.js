@@ -22,7 +22,7 @@ function contarCaracteres() {
     let mensajev = mensaje.value;
 
     let parrafo = document.getElementById("contador");
-    let parrafov = "";
+    let parrafov = "hola";
 
     parrafov = "Contador de caracteres: " + mensajev.length + "/500";
     parrafo.innerHTML = parrafov;

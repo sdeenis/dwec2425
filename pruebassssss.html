@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.addEventListener("load", inicio)
+
+        function inicio() {
+            console.log("hola")
+
+            if(typeof(Storage!=="undefined")) {
+                console.log("se pue")
+            } else {
+                console.log("no se pue")
+            }
+
+            setTimeout(() => console.log("3seg"), 3000)
+
+        }
+    </script>
+</body>
+</html>
