@@ -10,10 +10,28 @@
 </head>
 
 <body>
-    <h1>Buscaminas</h1>
-    <p id="contenedor">sadasdasd</p>
 
-    
+    <h1>
+        <hr>Buscaminas<hr>
+    </h1>
+
+    <div id="seleccionardificultad">
+        <div class="select">
+        <select id="dificultad">
+            <option value="facil">Fácil</option>
+            <option value="media">Media</option>
+            <option value="dificil">Difícil</option>
+        </select>
+    </div>
+    </div>
+
+    <button onclick="iniciarJuego()">Iniciar</button>
+
+    <div id="tableroBM"></div>
+
+    <div id="mensajeDerrota" style="display: none;"></div>
+    <div id="mensajeVictoria" style="display: none;"></div>
+
 </body>
 
 </html>

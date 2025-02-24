@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+html {
+    padding: 20px;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -5,68 +11,230 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 25px;
-    /* background: linear-gradient(90deg, #263849, #41506b); */
-
+    padding: 0px;
     background-color: #41506b;
-    opacity: 0.8;
-    background-image: linear-gradient(30deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(150deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(30deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(150deg, #263849 12%, transparent 12.5%, transparent 87%, #263849 87.5%, #263849), linear-gradient(60deg, #26384977 25%, transparent 25.5%, transparent 75%, #26384977 75%, #26384977), linear-gradient(60deg, #26384977 25%, transparent 25.5%, transparent 75%, #26384977 75%, #26384977);
-    background-size: 28px 49px;
-    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
-
     flex-direction: column;
+    --s: 50px;
+    --c: #191b22;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%, #20222a 68% 70%, #0000 72%;
+    background:
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0/var(--_s),
+        repeating-conic-gradient(var(--c) 0 25%, #0000 0 50%) 0 0/var(--_s),
+        radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+
+    color: white;
+    font-family: 'Playfair Display', serif;
 }
+
 
 h1 {
     color: white;
-    font-size: 50px;
+    font-size: 60px;
     margin-bottom: 25px;
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
 }
 
 button {
-    width: 100%;
-    height: 100%;
-    background-color: #35bcbf;
-    border: 2px solid black;
-    background-color: #35bcbf;
-    opacity: 0.8;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 25px;
+    /* border: unset; */
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    /* font-weight: 1000; */
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
 }
 
-button:active {
-    background-color: #000000;
-    opacity: 0.8;
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #20222a;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    border: 0px;
 }
 
 button:hover {
-    background-color: #90f6d7;
-    opacity: 0.8;
-    background-image: linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(30deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(150deg, #35bcbf 12%, transparent 12.5%, transparent 87%, #35bcbf 87.5%, #35bcbf), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77), linear-gradient(60deg, #35bcbf77 25%, transparent 25.5%, transparent 75%, #35bcbf77 75%, #35bcbf77);
-    background-size: 28px 49px;
-    background-position: 0 0, 0 0, 14px 25px, 14px 25px, 0 0, 14px 25px;
+    color: #e8e8e8;
+    cursor: pointer;
 }
 
+button:hover::before {
+    width: 100%;
+}
 
-.tablero {
-    padding: 0px;
+button:active {
+    transform: scale(0.95);
+}
+
+select {
+    border: 0;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #20222a;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+}
+
+.select {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    border: 5px solid #90f6d7;
-    border-radius: 3%;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.select:hover::after {
+    color: #f39c12;
+    cursor: pointer;
 }
 
 .fila {
+    margin: 5px;
     padding: 0px;
-    width: 100%;
-    height: 50px;
     display: flex;
-    justify-content: center;
 }
 
 .casilla {
-    padding: 0px;
-    background-color: black;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    background-color: #e8e8e8; 
+    border: 2px solid black; 
+    display: inline-block; 
+    margin: 1px;
+    color: black;
+    text-align: center;
 }
+
+.casillaabierta {
+    background-color: #f39c12;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black; 
+    display: inline-block; 
+    margin: 1px;
+    color: black;
+    text-align: center;
+    font-size: 18px; 
+    padding: 0px;
+    justify-content: center; 
+    align-items: center;
+}
+
+.casilla-1 { color: blue; }
+.casilla-2 { color: green; }
+.casilla-3 { color: red; }
+.casilla-4 { color: purple; }
+.casilla-5 { color: brown; }
+.casilla-6 { color: teal; }
+.casilla-7 { color: lime; }
+.casilla-8 { color: darkmagenta; }
+
+.marcada {
+    background-color: green;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black; 
+    display: inline-block; 
+    margin: 1px;
+    color: black;
+    text-align: center;
+    font-size: 18px; 
+    padding: 0px;
+    justify-content: center; 
+    align-items: center;
+}
+
+.marcada::after {
+    content: "🚩";
+}
+
+.casilla:hover {
+    background-color: #20222a;
+    transition: all 0.2s;
+}
+
+.filaSuperior {
+    margin: 5px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.numBanderas {
+    font-size: 18px;
+    color: white;
+}
+
+.cronometro {
+    font-size: 18px;
+    color: white;
+}
+
+.bombas {
+    background-color: red;
+}
+
+#mensajeDerrota {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#mensajeVictoria {
+    text-align: center;
+    font-size: 20px;
+    color: green;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+
